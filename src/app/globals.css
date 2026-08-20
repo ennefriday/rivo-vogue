@@ -1,0 +1,95 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-ivory: #FDFBF7;
+  --color-brand-charcoal: #0A0908;
+  --color-brand-pink: #E58CA4;
+  --color-brand-gold: #DFB15B;
+
+  --font-serif: var(--font-fraunces), serif;
+  --font-sans: var(--font-public-sans), sans-serif;
+
+  --spacing-8pt: 8px;
+  --spacing-16pt: 16px;
+  --spacing-24pt: 24px;
+  --spacing-32pt: 32px;
+  --spacing-48pt: 48px;
+  --spacing-64pt: 64px;
+  --spacing-96pt: 96px;
+  --spacing-128pt: 128px;
+  --spacing-160pt: 160px;
+}
+
+@layer base {
+  :root {
+    --bg-color: #0A0908; /* Deep rich velvet black */
+    --text-color: #FDFBF7; 
+  }
+  
+  html, body {
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    scroll-behavior: smooth;
+    transition: background-color 0.8s ease, color 0.8s ease;
+  }
+
+  /* 
+   * Fluid Typography Scale 
+   * Using native CSS variables mapped from next/font to bypass Tailwind v4 @apply strictness 
+   */
+  h1, h2, h3 {
+    font-family: var(--font-fraunces), serif;
+  }
+
+  h1 { 
+    font-weight: 300; /* equivalent to font-light */
+    letter-spacing: -0.025em; /* equivalent to tracking-tight */
+    font-size: clamp(2.5rem, 5vw + 1rem, 5rem); 
+  }
+  
+  h2 { 
+    font-weight: 300;
+    letter-spacing: -0.025em;
+    font-size: clamp(2rem, 4vw + 1rem, 3.5rem); 
+  }
+  
+  h3 { 
+    font-weight: 400; /* equivalent to font-normal */
+    font-size: clamp(1.5rem, 3vw + 1rem, 2.5rem); 
+  }
+  
+  p { 
+    font-family: var(--font-public-sans), sans-serif;
+    font-weight: 300;
+    line-height: 1.625; /* equivalent to leading-relaxed */
+    font-size: clamp(1rem, 1vw + 0.875rem, 1.125rem); 
+  }
+}
+
+@layer utilities {
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  
+  .mask-edges {
+    mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+    -webkit-mask-image: linear-gradient(to right, transparent, black 5%, black 95%, transparent);
+  }
+}
+
+/* Fallback for users preferring reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html, body {
+    transition: none;
+  }
+  * {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
