@@ -5,6 +5,7 @@ import { useScroll, useTransform, motion } from 'framer-motion';
 import { Service } from '@/lib/servicesData';
 import { coutureEase } from '@/lib/animations';
 import MediaLightbox from '@/components/home/MediaLightbox';
+import { PortfolioItem } from '@/lib/homeData';
 
 export function ServiceGallery({ service }: { service: Service }) {
   const container = useRef<HTMLDivElement>(null);
@@ -35,6 +36,17 @@ export function ServiceGallery({ service }: { service: Service }) {
   const scales = [scale4, scale5, scale6, scale5, scale6, scale8, scale9];
 
   if (baseImages.length === 0) return null;
+
+  const activeImage = selectedImageId ? baseImages.find(img => img.id === selectedImageId) : null;
+  const lightboxItem: PortfolioItem | null = activeImage ? {
+    id: String(activeImage.id),
+    title: activeImage.alt || `${service.title} Gallery`,
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: activeImage.src,
+    aspectRatio: 'landscape',
+    caption: `Exclusive view from the ${service.title} collection.`
+  } : null;
 
   return (
     <section className="bg-brand-charcoal text-brand-ivory border-t border-brand-gold/10">
@@ -116,8 +128,7 @@ export function ServiceGallery({ service }: { service: Service }) {
       </div>
 
       <MediaLightbox 
-        images={baseImages}
-        selectedId={selectedImageId}
+        item={lightboxItem}
         onClose={() => setSelectedImageId(null)}
       />
     </section>

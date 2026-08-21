@@ -12,45 +12,65 @@ export default function PortfolioSection() {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
   return (
-    <section className="relative py-24 sm:py-32 bg-brand-charcoal text-brand-ivory px-5 sm:px-8 lg:px-12 border-t border-brand-gold/10 overflow-hidden">
+    <section className="relative py-28 sm:py-36 bg-brand-charcoal text-brand-ivory px-6 sm:px-8 lg:px-12 border-t border-brand-gold/10 overflow-hidden">
       
-      {/* Background ambient lighting */}
-      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-brand-gold/[0.03] rounded-full blur-[130px] pointer-events-none" aria-hidden="true" />
-      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-brand-pink/[0.02] rounded-full blur-[120px] pointer-events-none" aria-hidden="true" />
+      {/* Ambient Liquid Glass Lighting */}
+      <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[140px] pointer-events-none mix-blend-screen" aria-hidden="true" />
+      <div className="absolute bottom-0 right-0 w-[450px] h-[450px] bg-brand-pink/[0.04] rounded-full blur-[150px] pointer-events-none mix-blend-screen" aria-hidden="true" />
 
-      <div className="max-w-[1400px] mx-auto">
+      <div className="max-w-[1400px] mx-auto relative z-10">
         
         {/* Section Header */}
-        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-6 pb-12 sm:pb-16 border-b border-brand-gold/15">
+        <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 pb-16 sm:pb-20 border-b border-brand-gold/20">
           <div>
-            <div className="inline-flex items-center gap-2 mb-3">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.8, ease: coutureEase }}
+              className="inline-flex items-center gap-3 mb-4"
+            >
               <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
-              <span className="font-sans text-[10.5px] uppercase tracking-[0.3em] text-brand-gold font-semibold">
-                The Atelier Gallery
+              <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
+                Our Masterpieces
               </span>
-            </div>
-            <h2 className="font-serif text-[clamp(2.25rem,5vw,3.75rem)] font-light text-brand-ivory leading-[1.05] tracking-tight">
-              Recent Work & <br />
-              <span className="italic text-brand-gold">Bridal Memories</span>
-            </h2>
+            </motion.div>
+            <motion.h2
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.9, delay: 0.1, ease: coutureEase }}
+              className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light text-brand-ivory leading-[1.05] tracking-tight"
+            >
+              Stories of Elegance <br />
+              <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-brand-ivory via-brand-gold to-brand-ivory">
+                &amp; Joy
+              </span>
+            </motion.h2>
           </div>
 
-          <div className="flex flex-col sm:flex-row sm:items-center gap-5">
-            <p className="font-sans text-sm text-brand-ivory/70 max-w-md font-light leading-relaxed">
-              Explore our latest creations — from ethereal white cathedral trains to dramatic traditional asoebi splendor.
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.9, delay: 0.2, ease: coutureEase }}
+            className="flex flex-col sm:flex-row sm:items-center gap-6"
+          >
+            <p className="font-sans text-base sm:text-lg text-brand-ivory/80 max-w-md font-light leading-relaxed">
+              Discover real stories of women who chose Rivo Vogue to make their special days unforgettable—from breathtaking white gowns to stunning asoebi.
             </p>
             <Link
               href="/services"
-              className="inline-flex items-center gap-2 bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-charcoal text-brand-gold border border-brand-gold/30 font-sans font-medium text-xs uppercase tracking-[0.2em] px-6 py-3.5 rounded-full transition-all duration-300 self-start sm:self-auto shrink-0"
+              className="group inline-flex items-center gap-3 bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-charcoal text-brand-gold border border-brand-gold/40 font-sans font-medium text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 sm:py-5 rounded-full transition-all duration-400 self-start sm:self-auto shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-charcoal"
             >
               <span>Explore All Work</span>
-              <ArrowUpRight className="w-4 h-4 text-brand-pink" />
+              <ArrowUpRight className="w-4 h-4 text-brand-pink transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
             </Link>
-          </div>
+          </motion.div>
         </div>
 
         {/* Asymmetric Gallery Grid (4 Images + 2 Videos) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8 pt-12 sm:pt-16">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 sm:pt-20">
           {PORTFOLIO_LIST.map((item, index) => {
             const isVideo = item.mediaType === 'video';
             const isWide = index === 3; // Make academy masterclass card wider or distinctive
@@ -58,11 +78,11 @@ export default function PortfolioSection() {
             return (
               <motion.div
                 key={item.id}
-                initial={{ opacity: 0, y: 30 }}
-                whileInView={{ opacity: 1, y: 0 }}
+                initial={{ opacity: 0, y: 40, scale: 0.98 }}
+                whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.7, delay: index * 0.08, ease: coutureEase }}
-                className={`group relative rounded-2xl overflow-hidden bg-brand-charcoal/90 border border-brand-gold/15 hover:border-brand-gold/50 cursor-pointer transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(223,177,91,0.2)] flex flex-col justify-between ${
+                transition={{ duration: 0.8, delay: index * 0.1, ease: coutureEase }}
+                className={`group relative rounded-3xl overflow-hidden bg-white/[0.03] border border-white/10 hover:border-brand-gold/40 backdrop-blur-xl cursor-pointer transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(223,177,91,0.2)] flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-charcoal ${
                   isWide ? 'md:col-span-2 lg:col-span-1' : ''
                 }`}
                 onClick={() => setSelectedItem(item)}
@@ -77,43 +97,43 @@ export default function PortfolioSection() {
                 }}
               >
                 {/* Media Container with placeholder styling */}
-                <div className={`relative w-full overflow-hidden bg-gradient-to-br from-brand-charcoal via-brand-charcoal/80 to-brand-gold/10 flex items-center justify-center ${
+                <div className={`relative w-full overflow-hidden bg-gradient-to-br from-brand-charcoal/80 via-brand-charcoal/40 to-transparent flex items-center justify-center ${
                   item.aspectRatio === 'portrait' ? 'aspect-[3/4]' : item.aspectRatio === 'landscape' ? 'aspect-[16/10]' : 'aspect-square'
                 }`}>
-                  <div className="flex flex-col items-center justify-center p-6 text-center z-0">
+                  <div className="flex flex-col items-center justify-center p-8 text-center z-0">
                     {isVideo ? (
-                      <div className="w-14 h-14 rounded-full bg-brand-gold/20 border border-brand-gold/60 flex items-center justify-center text-brand-pink mb-3 shadow-lg group-hover:scale-110 transition-transform duration-400">
-                        <Play className="w-6 h-6 text-brand-pink ml-0.5" />
+                      <div className="w-16 h-16 rounded-full bg-brand-gold/10 border border-brand-gold/50 flex items-center justify-center text-brand-pink mb-4 shadow-xl group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all duration-400">
+                        <Play className="w-6 h-6 ml-1 transition-colors" />
                       </div>
                     ) : (
-                      <div className="w-12 h-12 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-pink mb-3 group-hover:scale-110 transition-transform duration-400">
-                        <ImageIcon className="w-5 h-5 text-brand-pink" />
+                      <div className="w-14 h-14 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-pink mb-4 group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all duration-400">
+                        <ImageIcon className="w-6 h-6 transition-colors" />
                       </div>
                     )}
-                    <span className="font-serif text-lg text-brand-ivory/80 font-light max-w-xs">{item.title}</span>
-                    <span className="text-[10px] font-mono text-brand-ivory/40 mt-1">{item.mediaSrc}</span>
+                    <span className="font-serif text-xl text-brand-ivory/60 font-light max-w-xs">{item.title}</span>
+                    <span className="text-[11px] font-mono text-brand-ivory/30 mt-2">{item.mediaSrc}</span>
                   </div>
 
                   {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/40 to-transparent opacity-80 group-hover:opacity-95 transition-opacity duration-400" />
+                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-400 z-10" />
 
                   {/* Top Badges */}
-                  <div className="absolute top-4 left-4 right-4 flex items-center justify-between z-10">
-                    <span className="px-3 py-1 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 text-[9px] uppercase tracking-wider text-brand-gold font-sans font-medium">
+                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-20">
+                    <span className="px-4 py-1.5 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-wider text-brand-gold font-sans font-medium">
                       {item.category}
                     </span>
 
-                    <div className="w-8 h-8 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 flex items-center justify-center text-brand-pink group-hover:bg-brand-gold/20 transition-all">
-                      <Maximize2 className="w-3.5 h-3.5 text-brand-pink" />
+                    <div className="w-10 h-10 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 flex items-center justify-center text-brand-pink group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all">
+                      <Maximize2 className="w-4 h-4 transition-colors" />
                     </div>
                   </div>
 
                   {/* Bottom Text in overlay */}
-                  <div className="absolute bottom-4 left-4 right-4 z-10">
-                    <h3 className="font-serif text-xl font-light text-brand-ivory group-hover:text-brand-gold transition-colors duration-300">
+                  <div className="absolute bottom-6 left-6 right-6 z-20">
+                    <h3 className="font-serif text-2xl font-light text-brand-ivory group-hover:text-brand-gold transition-colors duration-400">
                       {item.title}
                     </h3>
-                    <p className="font-sans text-xs text-brand-ivory/60 font-light mt-1 line-clamp-1">
+                    <p className="font-sans text-sm text-brand-ivory/80 font-light mt-2 line-clamp-2">
                       {item.caption}
                     </p>
                   </div>

@@ -6,6 +6,8 @@ import { workshopGalleryData } from '@/lib/aboutData';
 import { coutureEase } from '@/lib/animations';
 import MediaLightbox from '@/components/home/MediaLightbox';
 
+import { PortfolioItem } from '@/lib/homeData';
+
 export function WorkshopGallery() {
   const [selectedImageId, setSelectedImageId] = useState<number | null>(null);
 
@@ -25,6 +27,16 @@ export function WorkshopGallery() {
   const activeImage = selectedImageId 
     ? workshopGalleryData.images.find(img => img.id === selectedImageId)
     : null;
+
+  const lightboxItem: PortfolioItem | null = activeImage ? {
+    id: String(activeImage.id),
+    title: activeImage.alt || 'Workshop Inside Look',
+    category: 'Bespoke Couture',
+    mediaType: 'image',
+    mediaSrc: activeImage.src,
+    aspectRatio: 'landscape',
+    caption: 'A glimpse into the meticulous process behind our creations.'
+  } : null;
 
   return (
     <section className="py-24 md:py-32 px-6 lg:px-12 bg-brand-charcoal text-brand-ivory">
@@ -72,9 +84,7 @@ export function WorkshopGallery() {
       <AnimatePresence>
         {activeImage && (
           <MediaLightbox
-            type="image"
-            src={activeImage.src}
-            alt={activeImage.alt}
+            item={lightboxItem}
             onClose={() => setSelectedImageId(null)}
           />
         )}
