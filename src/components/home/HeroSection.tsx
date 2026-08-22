@@ -22,15 +22,8 @@ export default function HeroSection() {
           <source src="https://res.cloudinary.com/dwrcqtkjc/video/upload/v1787327149/back_y9hsvh.mp4" type="video/mp4" />
         </video>
         
-        {/* ─── Ambient Liquid Glass Glows ─── */}
-        <div className="absolute top-1/4 left-1/4 -translate-x-1/2 -translate-y-1/2 w-[500px] sm:w-[800px] h-[500px] sm:h-[800px] bg-brand-gold/[0.08] rounded-full blur-[120px] mix-blend-screen pointer-events-none" aria-hidden="true" />
-        <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] bg-brand-pink/[0.05] rounded-full blur-[120px] mix-blend-screen pointer-events-none" aria-hidden="true" />
-        
         {/* Dark Overlay for Text Readability - barely visible but maintains professional contrast at bottom */}
         <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/60 via-brand-charcoal/5 to-transparent pointer-events-none" aria-hidden="true" />
-
-        {/* Subtle luxury geometric grid background lines */}
-        <div className="absolute inset-0 bg-[linear-gradient(to_right,rgba(184,146,90,0.04)_1px,transparent_1px),linear-gradient(to_bottom,rgba(184,146,90,0.04)_1px,transparent_1px)] bg-[size:5rem_5rem] [mask-image:radial-gradient(ellipse_70%_50%_at_50%_40%,#000_80%,transparent_100%)] pointer-events-none opacity-10" aria-hidden="true" />
 
         {/* ─── Main Hero Content ─── */}
         <div className="relative z-10 w-full max-w-[1240px] mx-auto flex flex-col items-start pb-8">
