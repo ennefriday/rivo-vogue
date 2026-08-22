@@ -4,6 +4,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import { Crown, ShieldCheck, Clock, Sparkles } from 'lucide-react';
 import { TRUST_PILLARS, STATS_LIST } from '@/lib/homeData';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { coutureEase } from '@/lib/animations';
 
 const iconMap = {
@@ -32,7 +33,7 @@ export default function TrustSection() {
             transition={{ duration: 0.8, ease: coutureEase }}
             className="inline-flex items-center gap-3 mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+            <GownBadgeIcon className="w-3.5 h-3.5 text-brand-gold" />
             <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
               Why Choose Us
             </span>

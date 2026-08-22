@@ -3,6 +3,7 @@
 import React, { useRef } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { ShoppingBag, ChevronLeft, ChevronRight, Sparkles, MessageCircle } from 'lucide-react';
 import { STORE_SHOWCASE } from '@/lib/homeData';
 import { coutureEase } from '@/lib/animations';
@@ -38,7 +39,7 @@ export default function StoreTeaserSection() {
               transition={{ duration: 0.8, ease: coutureEase }}
               className="inline-flex items-center gap-3 mb-4"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" />
+              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-pink" />
               <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-pink font-medium">
                 Shop the Collection
               </span>

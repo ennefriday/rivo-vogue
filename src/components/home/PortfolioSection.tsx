@@ -3,6 +3,7 @@
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { motion } from 'framer-motion';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { Play, Maximize2, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
 import { PORTFOLIO_LIST, PortfolioItem } from '@/lib/homeData';
 import { coutureEase } from '@/lib/animations';
@@ -30,7 +31,7 @@ export default function PortfolioSection() {
               transition={{ duration: 0.8, ease: coutureEase }}
               className="inline-flex items-center gap-3 mb-4"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-gold" />
               <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
                 Our Masterpieces
               </span>

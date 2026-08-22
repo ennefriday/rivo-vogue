@@ -2,6 +2,8 @@
 
 import React from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { motion } from 'framer-motion';
 import {
   MessageCircle,
@@ -95,7 +97,7 @@ export default function Footer() {
           <div className="lg:max-w-sm w-full space-y-6 bg-brand-gold/[0.03] border border-brand-gold/10 p-8 rounded-xl backdrop-blur-sm">
             <div className="space-y-2">
               <span className="text-[10px] font-sans tracking-[0.35em] uppercase text-brand-gold font-medium flex items-center gap-2">
-                <span className="w-1.5 h-1.5 rounded-full bg-brand-pink"></span>
+                <GownBadgeIcon className="w-3.5 h-3.5 text-brand-pink" />
                 Next Step
               </span>
               <h3 className="font-serif text-2xl font-light text-brand-ivory leading-snug">

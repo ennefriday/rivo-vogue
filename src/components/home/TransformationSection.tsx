@@ -1,6 +1,8 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { motion } from 'framer-motion';
 import { Scissors, Ruler, CheckCircle2 } from 'lucide-react';
 import { TRANSFORMATION_PILLARS, PROCESS_STEPS } from '@/lib/homeData';
@@ -28,7 +30,7 @@ export default function TransformationSection() {
               transition={{ duration: 0.8, ease: coutureEase }}
               className="inline-flex items-center gap-3 mb-4"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-gold" />
+              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-gold" />
               <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
                 Our Promise to You
               </span>
@@ -130,7 +132,7 @@ export default function TransformationSection() {
               transition={{ duration: 0.8, ease: coutureEase }}
               className="inline-flex items-center gap-3 mb-4"
             >
-              <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" />
+              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-pink" />
               <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-pink font-medium">
                 The Journey
               </span>

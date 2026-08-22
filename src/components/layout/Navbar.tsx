@@ -21,7 +21,6 @@ const NAV_LINKS = [
   { label: 'About', href: '/about' },
   { label: 'Services', href: '/services', hasDropdown: true },
   { label: 'Store', href: '/store' },
-  { label: 'Academy', href: '/academy' },
   { label: 'Contact', href: '/contact' },
 ];
 
@@ -44,6 +43,22 @@ const mobileBottomVariants = {
   closed: { opacity: 0, y: 30 },
   open: { opacity: 1, y: 0, transition: { delay: 0.7, duration: 0.5, ease: coutureEase } },
 };
+
+const BrandLogo = ({ className = "" }: { className?: string }) => (
+  <div className={`flex flex-col items-center group-hover:brightness-110 transition-all duration-500 ${className}`}>
+    <span className="font-serif tracking-[0.05em] text-[1.6rem] sm:text-[1.85rem] font-bold leading-none uppercase flex gap-[0.3em] justify-center drop-shadow-sm">
+      <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#F4E1A2] via-[#C59B4C] to-[#8F6527]">RIVO</span>
+      <span className="text-transparent bg-clip-text bg-gradient-to-b from-[#F5C2CD] via-[#D17B94] to-[#9E4057]">VOGUE</span>
+    </span>
+    <div className="flex items-center justify-center gap-1 sm:gap-[6px] mt-1 w-full opacity-90">
+      <span className="h-[1px] w-6 sm:w-8 bg-gradient-to-r from-transparent to-[#C59B4C]" />
+      <span className="font-['Great_Vibes','Brush_Script_MT',cursive] text-[0.8rem] sm:text-[1rem] text-[#C59B4C] italic font-medium tracking-wide">
+        Bridals and Stitches
+      </span>
+      <span className="h-[1px] w-6 sm:w-8 bg-gradient-to-l from-transparent to-[#C59B4C]" />
+    </div>
+  </div>
+);
 
 export default function Navbar() {
   const pathname = usePathname();
@@ -133,12 +148,10 @@ export default function Navbar() {
         transition={{ duration: 0.5, ease: coutureEase }}
         className={`fixed inset-x-0 top-0 z-40 transition-all duration-500 ${
           isScrolled || isServicesOpen
-            ? 'bg-brand-charcoal/85 backdrop-blur-xl border-b border-brand-gold/10 shadow-[0_2px_40px_-12px_rgba(184,146,90,0.12)]'
+            ? 'bg-brand-charcoal md:bg-brand-charcoal/85 md:backdrop-blur-xl border-b border-brand-gold/10 shadow-[0_2px_40px_-12px_rgba(184,146,90,0.12)]'
             : 'bg-transparent border-b border-transparent'
         }`}
       >
-        {/* Thin decorative gold accent line at top */}
-        <div className="h-[1px] w-full bg-gradient-to-r from-transparent via-brand-gold/40 to-transparent" aria-hidden="true" />
 
         <div className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between transition-all duration-500 ${
           isScrolled ? 'py-3.5' : 'py-5 lg:py-6'
@@ -150,14 +163,7 @@ export default function Navbar() {
             className="group relative flex items-center gap-3 focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-2 focus-visible:ring-offset-brand-charcoal rounded-sm"
             aria-label="Rivo Vogue — Home"
           >
-            <div className="flex flex-col">
-              <span className="font-serif tracking-[0.06em] text-[1.55rem] sm:text-[1.7rem] font-light text-brand-ivory group-hover:text-brand-gold transition-colors duration-500 leading-none">
-                Rivo Vogue
-              </span>
-              <span className="font-sans text-[8.5px] sm:text-[9.5px] tracking-[0.45em] uppercase text-brand-gold/80 font-medium mt-1 group-hover:text-brand-gold transition-colors duration-500">
-                Bridal &amp; Stitches
-              </span>
-            </div>
+            <BrandLogo />
             {/* Thin gold separator */}
             <div className="hidden lg:block h-8 w-px bg-brand-gold/20 ml-1" aria-hidden="true" />
           </Link>
@@ -204,13 +210,12 @@ export default function Navbar() {
                             {/* Brand Image Background */}
                             <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
                               <Image
-                                src="/images/brand/mobile-nav-bg.jpg"
+                                src="/back.webp"
                                 alt=""
                                 fill
-                                priority
-                                className="object-cover opacity-[0.12] grayscale-[50%]"
+                                loading="lazy"
+                                className="object-cover"
                               />
-                              <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/95 via-brand-charcoal/90 to-brand-charcoal/98" />
                             </div>
 
                             {/* Content container relative to keep it above background */}
@@ -309,7 +314,7 @@ export default function Navbar() {
               aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
               aria-expanded={isMobileMenuOpen}
               aria-controls="mobile-nav-drawer"
-              className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal/50 hover:bg-brand-charcoal transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold backdrop-blur-md"
+              className="lg:hidden relative w-12 h-12 flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal/50 hover:bg-brand-charcoal transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold"
             >
               <div className="w-[20px] flex flex-col items-end gap-[6px]">
                 <motion.span
@@ -354,26 +359,24 @@ export default function Navbar() {
             {/* ─── Background imagery ─── */}
             <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
               <Image
-                src="/images/brand/mobile-nav-bg.jpg"
+                src="/back.webp"
                 alt=""
                 fill
-                priority
-                className="object-cover opacity-[0.15] scale-110 grayscale-[30%]"
+                loading="lazy"
+                className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal/90 via-brand-charcoal/95 to-brand-charcoal" />
             </div>
 
             {/* ─── Top bar ─── */}
             <div className="relative z-10 flex items-center justify-between px-5 sm:px-8 py-5">
-              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex flex-col">
-                <span className="font-serif tracking-[0.06em] text-[1.55rem] font-light text-brand-ivory leading-none">Rivo Vogue</span>
-                <span className="font-sans text-[8.5px] tracking-[0.45em] uppercase text-brand-gold/80 font-medium mt-1">Bridal &amp; Stitches</span>
+              <Link href="/" onClick={() => setIsMobileMenuOpen(false)} className="flex flex-col group">
+                <BrandLogo />
               </Link>
               <button
                 type="button"
                 onClick={() => setIsMobileMenuOpen(false)}
                 aria-label="Close menu"
-                className="w-12 h-12 flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal/50 hover:bg-brand-charcoal transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold backdrop-blur-md"
+                className="w-12 h-12 flex items-center justify-center rounded-full border border-brand-gold/30 bg-brand-charcoal/50 hover:bg-brand-charcoal transition-colors focus-visible:ring-2 focus-visible:ring-brand-gold"
               >
                 <div className="w-[20px] flex flex-col items-center gap-[6px]">
                   <span className="block h-[1.5px] w-[20px] bg-brand-gold rounded-full rotate-45 translate-y-[3.75px]" />
@@ -484,22 +487,15 @@ export default function Navbar() {
                   <span>Ughelli · Delta State · Nigeria</span>
                 </div>
 
-                <div className="flex flex-col sm:flex-row gap-4">
+                <div className="flex flex-col gap-4">
                   <a
                     href="https://wa.me/2348000000000?text=Hello%20Rivo%20Vogue,%20I%20would%20like%20to%20book%20an%20appointment"
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex-1 inline-flex items-center justify-center gap-3 bg-brand-gold text-brand-charcoal font-sans font-semibold text-[11px] tracking-[0.2em] uppercase py-4 rounded-full hover:bg-brand-ivory transition-colors shadow-lg shadow-brand-gold/20"
+                    className="w-full inline-flex items-center justify-center gap-3 bg-brand-gold text-brand-charcoal font-sans font-semibold text-[11px] tracking-[0.2em] uppercase py-4 rounded-full hover:bg-brand-ivory transition-colors shadow-lg shadow-brand-gold/20"
                   >
                     <MessageCircle className="w-4 h-4 text-brand-pink" />
                     Book via WhatsApp
-                  </a>
-                  <a
-                    href="tel:+2348000000000"
-                    className="flex-1 inline-flex items-center justify-center gap-3 border border-brand-gold/40 text-brand-ivory font-sans font-medium text-[11px] tracking-[0.2em] uppercase py-4 rounded-full hover:border-brand-gold hover:text-brand-gold transition-colors bg-brand-charcoal/40"
-                  >
-                    <Phone className="w-4 h-4 text-brand-pink" />
-                    Call Atelier
                   </a>
                 </div>
               </motion.div>

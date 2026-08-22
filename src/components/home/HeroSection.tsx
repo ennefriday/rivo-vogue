@@ -1,12 +1,46 @@
 'use client';
 
-import React from 'react';
+import React, { useRef } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import Image from 'next/image';
+import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
 import { ArrowUpRight, ChevronDown } from 'lucide-react';
 import { coutureEase } from '@/lib/animations';
 
+const Word = ({ children, progress, range }: { children: string, progress: MotionValue<number>, range: [number, number] }) => {
+  // Mobile optimization: Use opacity + slight Y translate, will-change to force hardware acceleration
+  const opacity = useTransform(progress, range, [0.1, 1]);
+  const y = useTransform(progress, range, [10, 0]);
+  
+  let customClass = "mr-[0.25em] mb-[0.1em] inline-block will-change-[opacity,transform] ";
+  
+  const textLower = children.toLowerCase();
+  const isGold = textLower.includes("wedding") || textLower.includes("gown") || textLower.includes("asoebi") || textLower.includes("confident");
+  const isGradient = textLower.includes("quality") || textLower.includes("fashion") || textLower.includes("budget") || textLower.includes("style");
+
+  if (isGold) {
+    customClass += "italic text-brand-gold ";
+  } else if (isGradient) {
+    customClass += "font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-ivory to-brand-gold ";
+  }
+
+  return (
+    <motion.span style={{ opacity, y }} className={customClass}>
+      {children}
+    </motion.span>
+  );
+};
+
 export default function HeroSection() {
+  const textRef = useRef<HTMLDivElement>(null);
+  const { scrollYProgress } = useScroll({
+    target: textRef,
+    offset: ["start 90%", "center 50%"]
+  });
+
+  const rawText = "From unforgettable wedding gowns to perfectly sculpted asoebi and everyday elegance, we create quality fashion tailored to your body, your style, and your budget — so you always feel confident in what you wear.";
+  const words = rawText.split(" ");
+
   return (
     <>
       <section className="relative min-h-[100dvh] flex items-end justify-start overflow-hidden bg-brand-charcoal text-brand-ivory pt-32 pb-16 px-6 sm:px-8 lg:px-12">
@@ -22,8 +56,9 @@ export default function HeroSection() {
           <source src="https://res.cloudinary.com/dwrcqtkjc/video/upload/v1787327149/back_y9hsvh.mp4" type="video/mp4" />
         </video>
         
-        {/* Dark Overlay for Text Readability - barely visible but maintains professional contrast at bottom */}
-        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/60 via-brand-charcoal/5 to-transparent pointer-events-none" aria-hidden="true" />
+        {/* Dark Overlay for Text Readability & Seamless Fade */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/40 to-transparent pointer-events-none" aria-hidden="true" />
+        <div className="absolute bottom-0 left-0 right-0 h-40 bg-gradient-to-t from-brand-charcoal to-transparent pointer-events-none" aria-hidden="true" />
 
         {/* ─── Main Hero Content ─── */}
         <div className="relative z-10 w-full max-w-[1240px] mx-auto flex flex-col items-start pb-8">
@@ -71,37 +106,31 @@ export default function HeroSection() {
 
         </div>
 
-        {/* ─── Scroll indicator ─── */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          animate={{ opacity: 1 }}
-          transition={{ delay: 1, duration: 1 }}
-          className="absolute bottom-8 right-6 sm:right-12 flex flex-col items-center gap-2 text-brand-gold/70 pointer-events-none"
-        >
-          <span className="hidden sm:block font-sans text-[10px] uppercase tracking-[0.3em] font-medium" style={{ writingMode: 'vertical-rl' }}>Scroll</span>
-          <motion.div
-            animate={{ y: [0, 8, 0] }}
-            transition={{ duration: 2, repeat: Infinity, ease: 'easeInOut' }}
-          >
-            <ChevronDown className="w-5 h-5 text-brand-gold/80" />
-          </motion.div>
-        </motion.div>
-
       </section>
 
       {/* ─── Value Proposition Section (Moved from Hero) ─── */}
-      <section className="bg-brand-charcoal text-brand-ivory py-20 px-6 sm:px-8 lg:px-12 flex justify-center items-center border-t border-brand-gold/10">
-        <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.9, ease: coutureEase }}
-          className="max-w-3xl text-center"
+      <section className="relative bg-brand-charcoal text-brand-ivory pt-20 sm:pt-24 lg:pt-32 xl:pt-40 pb-24 px-6 sm:px-8 lg:px-12 flex justify-center items-center">
+        
+        {/* Overlapping Badge (Static, properly sized) */}
+        <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56">
+           <Image src="/badge.png" alt="Rivo Vogue Signature Badge" fill className="object-contain" />
+        </div>
+
+        <div 
+          ref={textRef}
+          className="max-w-[1000px] text-center relative z-10"
         >
-          <p className="font-sans text-lg sm:text-xl lg:text-2xl text-brand-ivory/80 font-light leading-relaxed tracking-wide">
-            Handcrafting unforgettable wedding gowns, sculpted asoebi, and beautiful everyday wear. Quality fashion made to fit your budget and your style.
-          </p>
-        </motion.div>
+          {/* Subtle background glow for the text */}
+          <div className="absolute inset-0 bg-brand-gold/5 blur-[80px] rounded-full pointer-events-none" aria-hidden="true" />
+          
+          <h2 className="font-serif text-[clamp(1.5rem,4vw,3.25rem)] text-brand-ivory font-light leading-[1.35] tracking-wide relative z-10 flex flex-wrap justify-center items-center">
+            {words.map((word, i) => {
+              const start = i / words.length;
+              const end = start + (1 / words.length);
+              return <Word key={i} progress={scrollYProgress} range={[start, end]}>{word}</Word>;
+            })}
+          </h2>
+        </div>
       </section>
     </>
   );

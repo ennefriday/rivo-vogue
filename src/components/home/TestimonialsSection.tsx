@@ -2,6 +2,7 @@
 
 import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
+import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
 import { Star, ChevronLeft, ChevronRight, MapPin, CheckCircle2 } from 'lucide-react';
 import { TESTIMONIALS_LIST } from '@/lib/homeData';
 import { coutureEase } from '@/lib/animations';
@@ -36,7 +37,7 @@ export default function TestimonialsSection() {
             transition={{ duration: 0.8, ease: coutureEase }}
             className="inline-flex items-center gap-3 mb-4"
           >
-            <span className="w-1.5 h-1.5 rounded-full bg-brand-pink" />
+            <GownBadgeIcon className="w-3.5 h-3.5 text-brand-pink" />
             <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-pink font-medium">
               What Our Clients Say
             </span>
