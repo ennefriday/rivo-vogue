@@ -5,6 +5,7 @@ import ServicesSection from '@/components/home/ServicesSection';
 import StoreTeaserSection from '@/components/home/StoreTeaserSection';
 import TransformationSection from '@/components/home/TransformationSection';
 import TrustSection from '@/components/home/TrustSection';
+import ScrollThemeTransition from '@/components/home/ScrollThemeTransition';
 import PortfolioSection from '@/components/home/PortfolioSection';
 import TestimonialsSection from '@/components/home/TestimonialsSection';
 import FinalCtaSection from '@/components/home/FinalCtaSection';
@@ -30,11 +31,11 @@ export default function HomePage() {
       {/* 4. Store Teaser: Curated Accessories & Scent Carousel */}
       <StoreTeaserSection />
 
-      {/* 5. Problem -> Transformation & 6-Step Journey */}
-      <TransformationSection />
-
-      {/* 6. Why Trust Rivo Vogue: Credibility & Proven Stats */}
-      <TrustSection />
+      {/* 5–6. Scroll-Driven Seamless Theme Transition Zone */}
+      <ScrollThemeTransition>
+        <TransformationSection />
+        <TrustSection />
+      </ScrollThemeTransition>
 
       {/* 7. Proof: Atelier Portfolio & Client Chronicles */}
       <PortfolioSection />

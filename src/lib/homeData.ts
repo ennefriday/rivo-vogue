@@ -10,8 +10,9 @@ export interface AudienceItem {
 export interface StoreItem {
   id: string;
   name: string;
-  category: 'Bags' | 'Shoes' | 'Perfumes' | 'Accessories';
+  category: 'Dresses' | 'Bags' | 'Shoes' | 'Perfumes' | 'Accessories';
   price: string;
+  originalPrice?: string;
   description: string;
   imageSrc: string;
   isNew?: boolean;
@@ -121,46 +122,85 @@ export const AUDIENCE_LIST: AudienceItem[] = [
  * ───────────────────────────────────────────────────────────── */
 export const STORE_SHOWCASE: StoreItem[] = [
   {
+    id: 'regal-emerald-gown',
+    name: 'Regal Emerald Velvet Gown',
+    category: 'Dresses',
+    price: '₦250,000',
+    description: 'Breathtaking evening gown featuring architectural off-shoulder neckline and rich velvet.',
+    imageSrc: '/media/portfolio/gala-crimson.jpg',
+    isNew: true,
+  },
+  {
+    id: 'ivory-bridal-satin',
+    name: 'Ivory Duchess Satin Bridal Dress',
+    category: 'Dresses',
+    price: '₦450,000',
+    originalPrice: '₦550,000',
+    description: 'Sculpted mermaid silhouette in heavyweight duchess satin with exquisite detailing.',
+    imageSrc: '/media/portfolio/bridal-minimal-satin.jpg',
+  },
+  {
+    id: 'champagne-lace-asoebi',
+    name: 'Champagne Lace Asoebi Dress',
+    category: 'Dresses',
+    price: '₦180,000',
+    description: 'Hand-beaded lace dress with intricate detailing and train for grand occasions.',
+    imageSrc: '/media/portfolio/asoebi-emerald.jpg',
+    isNew: true,
+  },
+  {
     id: 'crystal-bridal-clutch',
     name: 'Aura Crystal Embellished Clutch',
     category: 'Bags',
-    price: 'From ₦85,000',
+    price: '₦85,000',
+    originalPrice: '₦100,000',
     description: 'Handcrafted metallic mesh clutch with pavé crystal hardware and detachable chain strap.',
     imageSrc: '/media/store/clutch-aura.jpg',
     isNew: true,
   },
   {
+    id: 'pearl-minaudiere',
+    name: 'Pearl Encrusted Minaudière',
+    category: 'Bags',
+    price: '₦65,000',
+    description: 'Vintage-inspired hardcase clutch completely covered in freshwater pearls.',
+    imageSrc: '/media/store/robe-monarch.jpg',
+  },
+  {
     id: 'empress-stiletto',
     name: 'Empress Satin & Pearl Pumps',
     category: 'Shoes',
-    price: 'From ₦120,000',
+    price: '₦120,000',
     description: 'Italian silk satin pointed-toe stilettos crowned with freshwater pearl embellishments.',
     imageSrc: '/media/store/shoes-empress.jpg',
     isNew: true,
   },
   {
+    id: 'crystal-slingback',
+    name: 'Crystal Bow Slingback Heels',
+    category: 'Shoes',
+    price: '₦95,000',
+    originalPrice: '₦120,000',
+    description: 'Elegant transparent mesh slingbacks with oversized crystal bow detail.',
+    imageSrc: '/media/store/veil-celestial.jpg',
+  },
+  {
     id: 'oud-imperiale',
     name: 'Oud Impériale Extrait de Parfum',
     category: 'Perfumes',
-    price: 'From ₦95,000',
+    price: '₦95,000',
     description: 'A heady fusion of royal amber, smoky Cambodian oud, and velvety Bulgarian damask rose.',
     imageSrc: '/media/store/perfume-oud.jpg',
   },
   {
-    id: 'silk-bridal-robe',
-    name: 'Monarch Feathered Silk Robe',
-    category: 'Accessories',
-    price: 'From ₦65,000',
-    description: 'Floor-sweeping 100% pure mulberry silk dressing robe bordered with plush ostrich plumes.',
-    imageSrc: '/media/store/robe-monarch.jpg',
-  },
-  {
-    id: 'cathedral-pearl-veil',
-    name: 'Celestial Hand-Beaded Cathedral Veil',
-    category: 'Accessories',
-    price: 'From ₦110,000',
-    description: '3.5-meter ethereal French tulle veil hand-scattered with genuine crystal dew drops.',
-    imageSrc: '/media/store/veil-celestial.jpg',
+    id: 'floral-symphony',
+    name: 'Floral Symphony Eau de Parfum',
+    category: 'Perfumes',
+    price: '₦75,000',
+    originalPrice: '₦85,000',
+    description: 'A delicate blend of jasmine, white peony, and warm vanilla musk for elegant wear.',
+    imageSrc: '/media/store/perfume-oud.jpg',
+    isNew: true,
   },
 ];
 
@@ -259,22 +299,22 @@ export const STATS_LIST: StatItem[] = [
   {
     value: '500+',
     label: 'Brides & Clients Adorned',
-    sublabel: 'Across Delta State & Worldwide',
+    sublabel: '',
   },
   {
     value: '100%',
-    label: 'Bespoke Fit Guarantee',
-    sublabel: 'Flawless tailored satisfaction',
+    label: 'Satisfied Customers',
+    sublabel: '',
   },
   {
     value: '8+',
     label: 'Years of Atelier Mastery',
-    sublabel: 'Dedicated haute couture legacy',
+    sublabel: '',
   },
   {
     value: '150+',
     label: 'Academy Graduates',
-    sublabel: 'Empowered fashion entrepreneurs',
+    sublabel: '',
   },
 ];
 

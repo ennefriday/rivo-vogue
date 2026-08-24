@@ -13,7 +13,7 @@ export default function PortfolioSection() {
   const [selectedItem, setSelectedItem] = useState<PortfolioItem | null>(null);
 
   return (
-    <section className="relative py-28 sm:py-36 bg-brand-charcoal text-brand-ivory px-6 sm:px-8 lg:px-12 border-t border-brand-gold/10 overflow-hidden">
+    <section className="relative py-28 sm:py-36 bg-brand-charcoal text-brand-ivory px-6 sm:px-8 lg:px-12 overflow-hidden">
       
       {/* Ambient Liquid Glass Lighting */}
       <div className="absolute top-1/3 left-0 w-[500px] h-[500px] bg-brand-gold/[0.05] rounded-full blur-[140px] pointer-events-none mix-blend-screen" aria-hidden="true" />
