@@ -7,7 +7,7 @@ import { ContactFaq } from '@/components/contact/ContactFaq';
 
 export const metadata: Metadata = {
   title: 'Contact Us | Rivo Vogue',
-  description: 'Book a consultation or get in touch with the Rivo Vogue Atelier in Ughelli, Delta State. We look forward to crafting your perfect look.',
+  description: 'Book a consultation or get in touch with the Rivo Vogue Fashion House in Ughelli, Delta State. We look forward to crafting your perfect look.',
 };
 
 export default function ContactPage() {

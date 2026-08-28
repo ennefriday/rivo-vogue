@@ -83,7 +83,7 @@ export default function TrustSection() {
             className="font-serif text-[clamp(2.5rem,5vw,4rem)] font-light leading-[1.05] tracking-tight"
           >
             Trusted by Women Who <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-current via-[#A64D6A] to-current">
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#A64D6A] via-[#C9899A] to-[#A64D6A]">
               Expect the Best
             </span>
           </motion.h2>
@@ -94,7 +94,7 @@ export default function TrustSection() {
             transition={{ duration: 0.9, delay: 0.2, ease: coutureEase }}
             className="font-sans text-base sm:text-lg opacity-90 font-light mt-6 leading-relaxed max-w-lg text-balance"
           >
-            Our atelier is built on an unwavering commitment to precision, luxurious fabrics, and delivering on our promises—so you never have to worry.
+            Our Fashion House is built on an unwavering commitment to precision, luxurious fabrics, and delivering on our promises—so you never have to worry.
           </motion.p>
         </div>
 

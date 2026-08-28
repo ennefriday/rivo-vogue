@@ -40,7 +40,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${fraunces.variable} ${publicSans.variable}`}>
+    <html lang="en" data-scroll-behavior="smooth" className={`${fraunces.variable} ${publicSans.variable}`}>
       <body className="antialiased selection:bg-brand-gold/30 selection:text-brand-ivory overflow-x-hidden min-h-screen flex flex-col bg-brand-charcoal text-brand-ivory">
         {/* WCAG 2.1 AA Skip to Content Link */}
         <a 

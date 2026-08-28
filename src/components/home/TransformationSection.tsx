@@ -117,7 +117,7 @@ export default function TransformationSection() {
             className="font-serif text-[clamp(2.5rem,4vw,3.5rem)] font-light leading-tight"
           >
             How We Bring Your Vision <br />
-            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-current via-[#A64D6A] to-current">
+            <span className="italic text-transparent bg-clip-text bg-gradient-to-r from-[#A64D6A] via-[#C9899A] to-[#A64D6A]">
               To Life
             </span>
           </motion.h2>

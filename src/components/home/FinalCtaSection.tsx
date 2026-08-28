@@ -30,7 +30,7 @@ export default function FinalCtaSection() {
         >
           <Sparkles className="w-4 h-4 text-brand-gold" />
           <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
-            Private Salon & Atelier
+            Private Salon & Fashion House
           </span>
         </motion.div>
 
@@ -77,7 +77,7 @@ export default function FinalCtaSection() {
           </Link>
 
           <a
-            href="https://wa.me/2348000000000?text=Hello%20Rivo%20Vogue,%20I%20would%20like%20to%20inquire%20about%20a%20bridal%20or%20bespoke%20consultation."
+            href="https://wa.me/2347088835025?text=Hello%20Rivo%20Vogue,%20I%20would%20like%20to%20inquire%20about%20a%20bridal%20or%20bespoke%20consultation."
             target="_blank"
             rel="noopener noreferrer"
             className="group w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-white/[0.05] text-brand-ivory font-sans font-medium text-xs sm:text-sm uppercase tracking-[0.2em] px-10 py-5 rounded-full border border-brand-gold/30 backdrop-blur-md transition-all duration-400 hover:bg-white/[0.1] hover:border-brand-gold hover:text-brand-gold focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-charcoal"
@@ -91,7 +91,7 @@ export default function FinalCtaSection() {
         <div className="mt-16 flex flex-col sm:flex-row items-center justify-center gap-3 text-xs sm:text-sm font-sans tracking-widest uppercase text-brand-ivory/60">
           <div className="flex items-center gap-2">
             <MapPin className="w-4 h-4 text-brand-gold" />
-            <span>Atelier in Ughelli, Delta State</span>
+            <span>Fashion House in Ughelli, Delta State</span>
           </div>
           <span className="hidden sm:inline">•</span>
           <span>Worldwide Shipping</span>

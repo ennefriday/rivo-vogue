@@ -26,7 +26,7 @@ export function StoreHero() {
         className="absolute inset-0 z-0 origin-center"
       >
         <img 
-          src="/images/store-hero.jpg" 
+          src="/store.webp" 
           alt="Luxury Accessories Collection" 
           className="w-full h-full object-cover grayscale-[30%]"
         />
@@ -66,6 +66,9 @@ export function StoreHero() {
 
       {/* Decorative gradient blur */}
       <div className="absolute -bottom-32 left-1/2 -translate-x-1/2 w-full max-w-3xl h-64 bg-brand-gold/[0.05] blur-[100px] pointer-events-none z-10" />
+
+      {/* Smooth Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-charcoal to-transparent pointer-events-none z-20" />
     </section>
   );
 }

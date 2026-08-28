@@ -6,7 +6,7 @@ import { fadeUpVariant, coutureEase } from '@/lib/animations';
 
 export function OurValues() {
   return (
-    <section className="py-24 md:py-32 px-6 lg:px-12 bg-brand-ivory text-brand-charcoal">
+    <section className="py-24 md:py-32 px-6 lg:px-12 bg-brand-charcoal text-brand-ivory">
       <div className="max-w-7xl mx-auto">
         <motion.div 
           className="text-center mb-16 md:mb-24"
@@ -20,7 +20,7 @@ export function OurValues() {
             How We Work
           </span>
           <h2 className="font-serif text-4xl md:text-5xl font-light mb-6">{ourValuesData.title}</h2>
-          <div className="w-16 h-[1px] bg-brand-charcoal mx-auto"></div>
+          <div className="w-16 h-[1px] bg-brand-ivory mx-auto"></div>
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-16 gap-x-12">
@@ -36,13 +36,13 @@ export function OurValues() {
                 viewport={{ once: true, margin: "-50px" }}
                 transition={{ duration: 0.6, delay: index * 0.1, ease: coutureEase }}
               >
-                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-brand-charcoal/10 flex items-center justify-center group-hover:border-brand-pink group-hover:bg-brand-pink/5 transition-all duration-300">
-                  <Icon className="w-5 h-5 text-brand-charcoal group-hover:text-brand-pink transition-colors duration-300" strokeWidth={1.5} />
+                <div className="flex-shrink-0 w-12 h-12 rounded-full border border-brand-ivory/10 flex items-center justify-center group-hover:border-brand-pink group-hover:bg-brand-pink/5 transition-all duration-300">
+                  <Icon className="w-5 h-5 text-brand-ivory group-hover:text-brand-pink transition-colors duration-300" strokeWidth={1.5} />
                 </div>
                 
                 <div>
                   <h3 className="font-serif text-xl font-medium mb-3 group-hover:text-brand-pink transition-colors duration-300">{value.title}</h3>
-                  <p className="font-sans text-brand-charcoal/70 text-sm leading-relaxed">
+                  <p className="font-sans text-brand-ivory/70 text-sm leading-relaxed">
                     {value.description}
                   </p>
                 </div>

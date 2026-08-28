@@ -18,14 +18,16 @@ export function ServicesHero() {
     <section ref={containerRef} className="relative h-[80vh] min-h-[600px] flex items-center justify-center overflow-hidden bg-brand-charcoal text-brand-ivory px-6">
       <motion.div 
         style={{ y, opacity }}
-        className="absolute inset-0 z-0 opacity-40"
+        className="absolute inset-0 z-0 origin-center"
       >
         <img 
-          src="/placeholder-services-hero.jpg" 
+          src="/service.webp" 
           alt="Rivo Vogue Services" 
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover grayscale-[20%]"
         />
-        <div className="absolute inset-0 bg-gradient-to-b from-brand-charcoal via-brand-charcoal/80 to-brand-charcoal"></div>
+        {/* Gradient overlays for contrast and luxury feel */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal via-brand-charcoal/40 to-transparent"></div>
+        <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/80 via-transparent to-transparent"></div>
       </motion.div>
 
       <div className="relative z-10 text-center max-w-4xl mx-auto flex flex-col items-center">
@@ -35,7 +37,7 @@ export function ServicesHero() {
           animate="visible"
           className="text-brand-gold uppercase tracking-[0.3em] text-xs font-medium mb-6 block"
         >
-          Atelier & Services
+          Fashion House & Services
         </motion.span>
         
         <motion.h1 
@@ -74,6 +76,9 @@ export function ServicesHero() {
           ></motion.div>
         </div>
       </motion.div>
+
+      {/* Smooth Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-charcoal to-transparent pointer-events-none z-0" />
     </section>
   );
 }

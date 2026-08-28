@@ -52,6 +52,9 @@ export function AboutHero() {
         animate={{ height: 96 }}
         transition={{ duration: 1, delay: 0.8, ease: coutureEase }}
       />
+      
+      {/* Smooth Bottom Gradient */}
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-brand-charcoal to-transparent pointer-events-none z-10" />
     </section>
   );
 }

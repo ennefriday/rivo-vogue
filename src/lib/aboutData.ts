@@ -12,7 +12,7 @@ import {
 export const aboutHeroData = {
   title: "About Rivo Vogue",
   description: "Crafting unforgettable bridal experiences and bespoke fashion for those who demand excellence.",
-  image: "/placeholder-hero.jpg" // User will provide media
+  image: "/about_us.webp" // User will provide media
 };
 
 export const ourStoryData = {
@@ -59,10 +59,10 @@ export const whoWeServeData = {
 };
 
 export const founderData = {
-  name: "Jane Doe", // Placeholder name
+  name: "Rita", 
   role: "Founder & Creative Director",
   bio: "With over a decade of experience in couture design and luxury retail, our founder established Rivo Vogue to bridge the gap between high-end fashion and local accessibility. Her meticulous eye for detail and unwavering commitment to quality have made Rivo Vogue the premier destination for bridal and bespoke fashion in Delta State.",
-  image: "/placeholder-founder.jpg"
+  image: "/rita.webp"
 };
 
 export const ourValuesData = {
@@ -102,7 +102,7 @@ export const ourValuesData = {
 };
 
 export const workshopGalleryData = {
-  title: "Inside the Atelier",
+  title: "Inside the Fashion House",
   images: [
     { id: 1, src: "/placeholder-gallery-1.jpg", alt: "Cutting process" },
     { id: 2, src: "/placeholder-gallery-2.jpg", alt: "Sewing details" },

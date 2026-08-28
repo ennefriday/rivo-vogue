@@ -11,7 +11,7 @@ interface WhatsAppButtonProps {
 }
 
 export default function WhatsAppButton({
-  phoneNumber = '2348000000000',
+  phoneNumber = '2347088835025',
   defaultMessage = 'Hello Rivo Vogue, I would like to inquire about your bridal & bespoke services.',
 }: WhatsAppButtonProps) {
   const [isHovered, setIsHovered] = useState(false);

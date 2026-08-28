@@ -35,7 +35,7 @@ export function ContactSplitLayout() {
 *Message:* ${formData.message}`;
 
     const encodedText = encodeURIComponent(text);
-    const whatsappNumber = "2348000000000"; // Placeholder
+    const whatsappNumber = "2347088835025"; // Placeholder
     const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${encodedText}`;
     
     window.open(whatsappUrl, '_blank');
@@ -64,7 +64,7 @@ export function ContactSplitLayout() {
                 <div>
                   <h3 className="font-serif text-lg text-brand-ivory mb-1">Phone & WhatsApp</h3>
                   <p className="text-sm text-brand-ivory/60 font-light mb-2">Available Mon-Sat, 9am - 6pm</p>
-                  <a href="tel:+2348000000000" className="text-sm hover:text-brand-gold transition-colors block">+234 800 000 0000</a>
+                  <a href="tel:07088835025" className="text-sm hover:text-brand-gold transition-colors block">0708 883 5025</a>
                 </div>
               </div>
 
@@ -84,7 +84,7 @@ export function ContactSplitLayout() {
                   <MapPin className="w-4 h-4 text-brand-gold" />
                 </div>
                 <div>
-                  <h3 className="font-serif text-lg text-brand-ivory mb-1">Atelier Address</h3>
+                  <h3 className="font-serif text-lg text-brand-ivory mb-1">Fashion House Address</h3>
                   <p className="text-sm text-brand-ivory/60 font-light leading-relaxed">
                     Ughelli, Delta State<br />
                     Nigeria

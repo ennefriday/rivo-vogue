@@ -256,7 +256,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   },
   {
     step: '05',
-    title: 'Atelier Crafting',
+    title: 'Fashion House Crafting',
     description: 'Our master seamstresses cut, drape, and bead your piece with artisan care.',
   },
   {
@@ -308,7 +308,7 @@ export const STATS_LIST: StatItem[] = [
   },
   {
     value: '8+',
-    label: 'Years of Atelier Mastery',
+    label: 'Years of Fashion House Mastery',
     sublabel: '',
   },
   {
@@ -351,7 +351,7 @@ export const PORTFOLIO_LIST: PortfolioItem[] = [
   },
   {
     id: 'portfolio-4',
-    title: 'Atelier Pattern & Fitting Masterclass',
+    title: 'Fashion House Pattern & Fitting Masterclass',
     category: 'Academy',
     mediaType: 'video',
     mediaSrc: '/media/portfolio/academy-masterclass.mp4',

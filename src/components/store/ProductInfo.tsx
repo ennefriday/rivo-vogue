@@ -5,7 +5,7 @@ import { Product } from '@/lib/storeData';
 import { MessageCircle, ShieldCheck, Ruler, Truck } from 'lucide-react';
 
 export function ProductInfo({ product }: { product: Product }) {
-  const whatsappNumber = "2348000000000";
+  const whatsappNumber = "2347088835025";
   const message = `Hello Rivo Vogue, I am interested in ordering the ${product.name} (${product.price}). Can we discuss the details?`;
   const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 

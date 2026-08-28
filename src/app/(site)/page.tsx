@@ -25,7 +25,7 @@ export default function HomePage() {
       {/* 2. Who It's For: 7 Audience Segmentation Cards */}
       <AudienceSection />
 
-      {/* 3. Services Overview: 7 Atelier Pillars */}
+      {/* 3. Services Overview: 7 Fashion House Pillars */}
       <ServicesSection />
 
       {/* 4. Store Teaser: Curated Accessories & Scent Carousel */}
@@ -37,7 +37,7 @@ export default function HomePage() {
         <TrustSection />
       </ScrollThemeTransition>
 
-      {/* 7. Proof: Atelier Portfolio & Client Chronicles */}
+      {/* 7. Proof: Fashion House Portfolio & Client Chronicles */}
       <PortfolioSection />
       <TestimonialsSection />
 

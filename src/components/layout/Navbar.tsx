@@ -152,6 +152,8 @@ export default function Navbar() {
             : 'bg-transparent border-b border-transparent'
         }`}
       >
+        {/* Top gradient to ensure nav legibility and blend initially with heroes */}
+        <div className={`absolute inset-x-0 top-0 h-[140px] bg-gradient-to-b from-brand-charcoal/90 to-transparent pointer-events-none -z-10 transition-opacity duration-500 ${isScrolled || isServicesOpen ? 'opacity-0' : 'opacity-100'}`} />
 
         <div className={`max-w-[1400px] mx-auto px-5 sm:px-8 lg:px-10 flex items-center justify-between transition-all duration-500 ${
           isScrolled ? 'py-3.5' : 'py-5 lg:py-6'
@@ -489,7 +491,7 @@ export default function Navbar() {
 
                 <div className="flex flex-col gap-4">
                   <a
-                    href="https://wa.me/2348000000000?text=Hello%20Rivo%20Vogue,%20I%20would%20like%20to%20book%20an%20appointment"
+                    href="https://wa.me/2347088835025?text=Hello%20Rivo%20Vogue,%20I%20would%20like%20to%20book%20an%20appointment"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="w-full inline-flex items-center justify-center gap-3 bg-brand-gold text-brand-charcoal font-sans font-semibold text-[11px] tracking-[0.2em] uppercase py-4 rounded-full hover:bg-brand-ivory transition-colors shadow-lg shadow-brand-gold/20"
