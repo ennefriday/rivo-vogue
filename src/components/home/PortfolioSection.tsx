@@ -1,11 +1,35 @@
 'use client';
 
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import Link from 'next/link';
-import { motion } from 'framer-motion';
+import { motion, useInView } from 'framer-motion';
 import { GownBadgeIcon } from '@/components/icons/GownBadgeIcon';
+
+function InViewVideo({ src }: { src: string }) {
+  const ref = useRef<HTMLVideoElement>(null);
+  const isInView = useInView(ref, { margin: "0px" });
+
+  useEffect(() => {
+    if (isInView) {
+      ref.current?.play().catch(() => {});
+    } else {
+      ref.current?.pause();
+    }
+  }, [isInView]);
+
+  return (
+    <video
+      ref={ref}
+      src={src}
+      loop
+      muted
+      playsInline
+      className="absolute inset-0 w-full h-full object-cover z-0"
+    />
+  );
+}
 import { Play, Maximize2, ArrowUpRight, Image as ImageIcon } from 'lucide-react';
-import { PORTFOLIO_LIST, PortfolioItem } from '@/lib/homeData';
+import { PORTFOLIO_IMAGES, PORTFOLIO_VIDEOS, PortfolioItem } from '@/lib/homeData';
 import { coutureEase } from '@/lib/animations';
 import MediaLightbox from './MediaLightbox';
 
@@ -31,8 +55,8 @@ export default function PortfolioSection() {
               transition={{ duration: 0.8, ease: coutureEase }}
               className="inline-flex items-center gap-3 mb-4"
             >
-              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-gold" />
-              <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-gold font-medium">
+              <GownBadgeIcon className="w-3.5 h-3.5 text-brand-pink" />
+              <span className="font-sans text-[11px] uppercase tracking-[0.3em] text-brand-pink font-medium">
                 Our Masterpieces
               </span>
             </motion.div>
@@ -60,88 +84,84 @@ export default function PortfolioSection() {
             <p className="font-sans text-base sm:text-lg text-brand-ivory/80 max-w-md font-light leading-relaxed">
               Discover real stories of women who chose Rivo Vogue to make their special days unforgettable—from breathtaking white gowns to stunning asoebi.
             </p>
-            <Link
-              href="/services"
-              className="group inline-flex items-center gap-3 bg-brand-gold/10 hover:bg-brand-gold hover:text-brand-charcoal text-brand-gold border border-brand-gold/40 font-sans font-medium text-xs sm:text-sm uppercase tracking-[0.2em] px-8 py-4 sm:py-5 rounded-full transition-all duration-400 self-start sm:self-auto shrink-0 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-charcoal"
-            >
-              <span>Explore All Work</span>
-              <ArrowUpRight className="w-4 h-4 text-brand-pink transition-transform duration-300 group-hover:translate-x-1 group-hover:-translate-y-1" />
-            </Link>
           </motion.div>
         </div>
 
-        {/* Asymmetric Gallery Grid (4 Images + 2 Videos) */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 pt-16 sm:pt-20">
-          {PORTFOLIO_LIST.map((item, index) => {
-            const isVideo = item.mediaType === 'video';
-            const isWide = index === 3; // Make academy masterclass card wider or distinctive
+        {/* Images Horizontal Scroll/Carousel */}
+        <div className="flex overflow-x-auto snap-x snap-mandatory gap-1 md:gap-4 pt-10 sm:pt-16 pb-8 [&::-webkit-scrollbar]:hidden [-ms-overflow-style:none] [scrollbar-width:none]">
+          {PORTFOLIO_IMAGES.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, x: 40 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: coutureEase }}
+              className="relative h-[60vh] md:h-[75vh] flex-shrink-0 snap-center group cursor-pointer overflow-hidden bg-brand-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+              onClick={() => setSelectedItem(item)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open image: ${item.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedItem(item);
+                }
+              }}
+            >
+              {/* Base Image */}
+              <img 
+                src={item.mediaSrc} 
+                alt={item.title} 
+                className="h-full w-auto object-cover transition-transform duration-700 group-hover:scale-105"
+              />
+              
+              {/* Gradient Overlay for Text Readability */}
+              <div className="absolute inset-0 bg-gradient-to-r from-brand-charcoal/60 via-transparent to-transparent opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
 
-            return (
-              <motion.div
-                key={item.id}
-                initial={{ opacity: 0, y: 40, scale: 0.98 }}
-                whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                viewport={{ once: true, margin: '-50px' }}
-                transition={{ duration: 0.8, delay: index * 0.1, ease: coutureEase }}
-                className={`group relative rounded-3xl overflow-hidden bg-white/[0.03] border border-white/10 hover:border-brand-gold/40 backdrop-blur-xl cursor-pointer transition-all duration-500 hover:shadow-[0_25px_60px_-15px_rgba(223,177,91,0.2)] flex flex-col justify-between focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold focus-visible:ring-offset-4 focus-visible:ring-offset-brand-charcoal ${
-                  isWide ? 'md:col-span-2 lg:col-span-1' : ''
-                }`}
-                onClick={() => setSelectedItem(item)}
-                role="button"
-                tabIndex={0}
-                aria-label={`Open media: ${item.title}`}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    e.preventDefault();
-                    setSelectedItem(item);
-                  }
-                }}
-              >
-                {/* Media Container with placeholder styling */}
-                <div className={`relative w-full overflow-hidden bg-gradient-to-br from-brand-charcoal/80 via-brand-charcoal/40 to-transparent flex items-center justify-center ${
-                  item.aspectRatio === 'portrait' ? 'aspect-[3/4]' : item.aspectRatio === 'landscape' ? 'aspect-[16/10]' : 'aspect-square'
-                }`}>
-                  <div className="flex flex-col items-center justify-center p-8 text-center z-0">
-                    {isVideo ? (
-                      <div className="w-16 h-16 rounded-full bg-brand-gold/10 border border-brand-gold/50 flex items-center justify-center text-brand-pink mb-4 shadow-xl group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all duration-400">
-                        <Play className="w-6 h-6 ml-1 transition-colors" />
-                      </div>
-                    ) : (
-                      <div className="w-14 h-14 rounded-full bg-brand-gold/10 border border-brand-gold/30 flex items-center justify-center text-brand-pink mb-4 group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all duration-400">
-                        <ImageIcon className="w-6 h-6 transition-colors" />
-                      </div>
-                    )}
-                    <span className="font-serif text-xl text-brand-ivory/60 font-light max-w-xs">{item.title}</span>
-                    <span className="text-[11px] font-mono text-brand-ivory/30 mt-2">{item.mediaSrc}</span>
-                  </div>
+              {/* Side Title using writing-mode */}
+              <div className="absolute top-0 bottom-0 left-3 md:left-6 flex items-center justify-center pointer-events-none z-20">
+                <span 
+                  className="font-serif text-xl md:text-3xl text-brand-ivory whitespace-nowrap tracking-[0.2em] uppercase opacity-100 lg:opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500"
+                  style={{ writingMode: 'vertical-rl', transform: 'rotate(180deg)' }}
+                >
+                  {item.title}
+                </span>
+              </div>
+            </motion.div>
+          ))}
+        </div>
 
-                  {/* Gradient Overlay */}
-                  <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-90 group-hover:opacity-100 transition-opacity duration-400 z-10" />
-
-                  {/* Top Badges */}
-                  <div className="absolute top-6 left-6 right-6 flex items-center justify-between z-20">
-                    <span className="px-4 py-1.5 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-wider text-brand-gold font-sans font-medium">
-                      {item.category}
-                    </span>
-
-                    <div className="w-10 h-10 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 flex items-center justify-center text-brand-pink group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all">
-                      <Maximize2 className="w-4 h-4 transition-colors" />
-                    </div>
-                  </div>
-
-                  {/* Bottom Text in overlay */}
-                  <div className="absolute bottom-6 left-6 right-6 z-20">
-                    <h3 className="font-serif text-2xl font-light text-brand-ivory group-hover:text-brand-gold transition-colors duration-400">
-                      {item.title}
-                    </h3>
-                    <p className="font-sans text-sm text-brand-ivory/80 font-light mt-2 line-clamp-2">
-                      {item.caption}
-                    </p>
-                  </div>
+        {/* Videos Grid */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-8 pt-8 md:pt-16">
+          {PORTFOLIO_VIDEOS.map((item, index) => (
+            <motion.div
+              key={item.id}
+              initial={{ opacity: 0, y: 40 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true, margin: '-50px' }}
+              transition={{ duration: 0.8, delay: index * 0.1, ease: coutureEase }}
+              className="relative aspect-[4/5] md:aspect-video w-full group cursor-pointer overflow-hidden bg-brand-charcoal focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-brand-gold"
+              onClick={() => setSelectedItem(item)}
+              role="button"
+              tabIndex={0}
+              aria-label={`Open video: ${item.title}`}
+              onKeyDown={(e) => {
+                if (e.key === 'Enter' || e.key === ' ') {
+                  e.preventDefault();
+                  setSelectedItem(item);
+                }
+              }}
+            >
+              <InViewVideo src={item.mediaSrc} />
+              
+              {/* Play icon overlay */}
+              <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-brand-charcoal/20">
+                <div className="w-16 h-16 rounded-full bg-brand-ivory/20 backdrop-blur-md border border-brand-ivory/30 flex items-center justify-center text-brand-ivory shadow-xl">
+                  <Play className="w-6 h-6 ml-1" />
                 </div>
-              </motion.div>
-            );
-          })}
+              </div>
+            </motion.div>
+          ))}
         </div>
 
       </div>

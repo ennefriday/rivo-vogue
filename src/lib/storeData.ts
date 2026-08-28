@@ -1,4 +1,4 @@
-export type ProductCategory = 'All' | 'Bags' | 'Shoes' | 'Perfumes' | 'Accessories';
+export type ProductCategory = 'All' | 'Dresses' | 'Bags' | 'Shoes' | 'Perfumes' | 'Accessories';
 
 export type Product = {
   id: string;
@@ -17,6 +17,233 @@ export type Product = {
 };
 
 export const storeProducts: Product[] = [
+  {
+    id: 'dress-001',
+    slug: 'regal-emerald-velvet-gown',
+    name: 'Regal Emerald Velvet Gown',
+    category: 'Dresses',
+    price: '₦250,000',
+    shortDescription: 'Exquisite Regal Emerald Velvet Gown crafted for perfection.',
+    fullDescription: 'Experience the ultimate luxury with our Regal Emerald Velvet Gown. Perfectly tailored to elevate your presence on any occasion.',
+    coverImage: '/store/dress/dress1.1.webp',
+    hoverImage: '/store/dress/dress1.2.webp',
+    galleryImages: ['/store/dress/dress1.1.webp', '/store/dress/dress1.2.webp'],
+    details: [
+      { label: 'Material', value: 'Premium Fabric' },
+      { label: 'Care', value: 'Dry Clean Only' }
+    ],
+    isFeatured: true,
+  },
+  {
+    id: 'dress-002',
+    slug: 'ivory-duchess-satin',
+    name: 'Ivory Duchess Satin Bridal Dress',
+    category: 'Dresses',
+    price: '₦450,000',
+    shortDescription: 'Exquisite Ivory Duchess Satin Bridal Dress crafted for perfection.',
+    fullDescription: 'Experience the ultimate luxury with our Ivory Duchess Satin Bridal Dress. Perfectly tailored to elevate your presence on any occasion.',
+    coverImage: '/store/dress/dress2.1.webp',
+    hoverImage: '/store/dress/dress2.2.webp',
+    galleryImages: ['/store/dress/dress2.1.webp', '/store/dress/dress2.2.webp'],
+    details: [
+      { label: 'Material', value: 'Premium Fabric' },
+      { label: 'Care', value: 'Dry Clean Only' }
+    ],
+    isFeatured: true,
+  },
+  {
+    id: 'dress-003',
+    slug: 'champagne-lace-asoebi',
+    name: 'Champagne Lace Asoebi Dress',
+    category: 'Dresses',
+    price: '₦180,000',
+    shortDescription: 'Exquisite Champagne Lace Asoebi Dress crafted for perfection.',
+    fullDescription: 'Experience the ultimate luxury with our Champagne Lace Asoebi Dress. Perfectly tailored to elevate your presence on any occasion.',
+    coverImage: '/store/dress/dress3.1.webp',
+    hoverImage: '/store/dress/dress3.2.webp',
+    galleryImages: ['/store/dress/dress3.1.webp', '/store/dress/dress3.2.webp'],
+    details: [
+      { label: 'Material', value: 'Premium Fabric' },
+      { label: 'Care', value: 'Dry Clean Only' }
+    ],
+    isFeatured: true,
+  },
+  {
+    id: 'perfume-003',
+    slug: 'signature-scent-1',
+    name: 'Signature Scent 1',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per1.png',
+    hoverImage: '/store/perfume/per1.png',
+    galleryImages: ['/store/perfume/per1.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-004',
+    slug: 'signature-scent-2',
+    name: 'Signature Scent 2',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per2.png',
+    hoverImage: '/store/perfume/per2.png',
+    galleryImages: ['/store/perfume/per2.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-005',
+    slug: 'signature-scent-3',
+    name: 'Signature Scent 3',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per3.png',
+    hoverImage: '/store/perfume/per3.png',
+    galleryImages: ['/store/perfume/per3.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-006',
+    slug: 'signature-scent-4',
+    name: 'Signature Scent 4',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per4.png',
+    hoverImage: '/store/perfume/per4.png',
+    galleryImages: ['/store/perfume/per4.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-007',
+    slug: 'signature-scent-5',
+    name: 'Signature Scent 5',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per5.png',
+    hoverImage: '/store/perfume/per5.png',
+    galleryImages: ['/store/perfume/per5.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-008',
+    slug: 'signature-scent-6',
+    name: 'Signature Scent 6',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per6.png',
+    hoverImage: '/store/perfume/per6.png',
+    galleryImages: ['/store/perfume/per6.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-009',
+    slug: 'signature-scent-7',
+    name: 'Signature Scent 7',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per7.png',
+    hoverImage: '/store/perfume/per7.png',
+    galleryImages: ['/store/perfume/per7.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-0010',
+    slug: 'signature-scent-8',
+    name: 'Signature Scent 8',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per8.png',
+    hoverImage: '/store/perfume/per8.png',
+    galleryImages: ['/store/perfume/per8.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-0011',
+    slug: 'signature-scent-9',
+    name: 'Signature Scent 9',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per9.png',
+    hoverImage: '/store/perfume/per9.png',
+    galleryImages: ['/store/perfume/per9.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-0012',
+    slug: 'signature-scent-10',
+    name: 'Signature Scent 10',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per10.png',
+    hoverImage: '/store/perfume/per10.png',
+    galleryImages: ['/store/perfume/per10.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
+  {
+    id: 'perfume-0013',
+    slug: 'signature-scent-11',
+    name: 'Signature Scent 11',
+    category: 'Perfumes',
+    price: '₦75,000',
+    shortDescription: 'An alluring blend of premium ingredients.',
+    fullDescription: 'A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.',
+    coverImage: '/store/perfume/per11.png',
+    hoverImage: '/store/perfume/per11.png',
+    galleryImages: ['/store/perfume/per11.png'],
+    details: [
+      { label: 'Volume', value: '100ml / 3.4 fl oz' },
+      { label: 'Type', value: 'Eau de Parfum' }
+    ],
+  },
   {
     id: 'bag-001',
     slug: 'couture-pearl-clutch',

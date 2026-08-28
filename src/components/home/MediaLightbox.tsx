@@ -64,15 +64,17 @@ export default function MediaLightbox({ item, onClose }: MediaLightboxProps) {
             onClick={(e) => e.stopPropagation()}
           >
             {/* Media Area */}
-            <div className="relative aspect-[16/10] sm:aspect-[16/9] w-full bg-gradient-to-br from-brand-charcoal via-brand-charcoal/90 to-brand-gold/10 flex items-center justify-center overflow-hidden">
+            <div className={`relative w-full bg-gradient-to-br from-brand-charcoal via-brand-charcoal/90 to-brand-gold/10 flex items-center justify-center overflow-hidden ${
+              item.mediaType === 'video' ? 'aspect-[3/4] lg:aspect-[16/9]' : 'aspect-[16/10] sm:aspect-[16/9]'
+            }`}>
               {item.mediaType === 'video' ? (
-                <div className="relative w-full h-full flex flex-col items-center justify-center p-8 text-center bg-black/40">
-                  <div className="w-16 h-16 sm:w-20 sm:h-20 rounded-full bg-brand-gold/20 border border-brand-gold flex items-center justify-center text-brand-pink mb-4 shadow-xl">
-                    <Play className="w-7 h-7 sm:w-8 sm:h-8 ml-1 text-brand-pink" />
-                  </div>
-                  <span className="font-sans text-xs uppercase tracking-[0.25em] text-brand-gold font-medium">Video Showcase</span>
-                  <p className="font-serif text-lg sm:text-xl text-brand-ivory/90 mt-2 max-w-md">{item.title}</p>
-                  <span className="text-xs text-brand-ivory/50 mt-1 font-mono">{item.mediaSrc}</span>
+                <div className="relative w-full h-full bg-black">
+                  <video
+                    src={item.mediaSrc}
+                    autoPlay
+                    controls
+                    className="w-full h-full object-contain"
+                  />
                 </div>
               ) : (
                 <div className="relative w-full h-full flex flex-col items-center justify-center p-8 text-center">

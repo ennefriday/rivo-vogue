@@ -17,21 +17,39 @@ export function ProductRevealCard({ product }: { product: Product }) {
       onMouseLeave={() => setIsHovered(false)}
     >
       {/* Base Image */}
-      <motion.img 
+      <img 
         src={product.coverImage} 
         alt={product.name}
-        className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
       />
       
-      {/* Reveal Image (Hover) */}
-      <motion.img 
-        src={product.hoverImage || product.coverImage} 
-        alt={`${product.name} Lifestyle`}
-        initial={{ opacity: 0 }}
-        animate={{ opacity: isHovered ? 1 : 0 }}
-        transition={{ duration: 0.6, ease: "easeInOut" }}
-        className="absolute inset-0 w-full h-full object-cover"
-      />
+      {/* Desktop Reveal Image (Hover) */}
+      {product.hoverImage && product.hoverImage !== product.coverImage && (
+        <img 
+          src={product.hoverImage} 
+          alt={`${product.name} Lifestyle`}
+          className="absolute inset-0 w-full h-full object-contain object-center transition-all duration-700 opacity-0 lg:group-hover:opacity-100 hidden lg:block"
+        />
+      )}
+
+      {/* Mobile Auto Reveal Image */}
+      {product.hoverImage && product.hoverImage !== product.coverImage && (
+        <motion.img 
+          src={product.hoverImage} 
+          alt={`${product.name} Lifestyle Mobile`} 
+          className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-700 lg:hidden"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ margin: "100px 0px" }}
+          variants={{
+            hidden: { opacity: 0 },
+            visible: { 
+              opacity: [0, 0, 1, 1, 0],
+              transition: { duration: 10, repeat: Infinity, times: [0, 0.45, 0.5, 0.95, 1], ease: "easeInOut" }
+            }
+          }}
+        />
+      )}
 
       {/* Gradient Overlay */}
       <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-80" />

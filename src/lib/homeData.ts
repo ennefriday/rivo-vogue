@@ -15,6 +15,7 @@ export interface StoreItem {
   originalPrice?: string;
   description: string;
   imageSrc: string;
+  hoverImageSrc?: string;
   isNew?: boolean;
 }
 
@@ -118,7 +119,7 @@ export const AUDIENCE_LIST: AudienceItem[] = [
 ];
 
 /* ─────────────────────────────────────────────────────────────
- * STORE SHOWCASE (5 Curated Items)
+ * STORE SHOWCASE (Curated Items)
  * ───────────────────────────────────────────────────────────── */
 export const STORE_SHOWCASE: StoreItem[] = [
   {
@@ -127,7 +128,8 @@ export const STORE_SHOWCASE: StoreItem[] = [
     category: 'Dresses',
     price: '₦250,000',
     description: 'Breathtaking evening gown featuring architectural off-shoulder neckline and rich velvet.',
-    imageSrc: '/media/portfolio/gala-crimson.jpg',
+    imageSrc: '/store/dress/dress1.1.webp',
+    hoverImageSrc: '/store/dress/dress1.2.webp',
     isNew: true,
   },
   {
@@ -137,7 +139,8 @@ export const STORE_SHOWCASE: StoreItem[] = [
     price: '₦450,000',
     originalPrice: '₦550,000',
     description: 'Sculpted mermaid silhouette in heavyweight duchess satin with exquisite detailing.',
-    imageSrc: '/media/portfolio/bridal-minimal-satin.jpg',
+    imageSrc: '/store/dress/dress2.1.webp',
+    hoverImageSrc: '/store/dress/dress2.2.webp',
   },
   {
     id: 'champagne-lace-asoebi',
@@ -145,44 +148,9 @@ export const STORE_SHOWCASE: StoreItem[] = [
     category: 'Dresses',
     price: '₦180,000',
     description: 'Hand-beaded lace dress with intricate detailing and train for grand occasions.',
-    imageSrc: '/media/portfolio/asoebi-emerald.jpg',
+    imageSrc: '/store/dress/dress3.1.webp',
+    hoverImageSrc: '/store/dress/dress3.2.webp',
     isNew: true,
-  },
-  {
-    id: 'crystal-bridal-clutch',
-    name: 'Aura Crystal Embellished Clutch',
-    category: 'Bags',
-    price: '₦85,000',
-    originalPrice: '₦100,000',
-    description: 'Handcrafted metallic mesh clutch with pavé crystal hardware and detachable chain strap.',
-    imageSrc: '/media/store/clutch-aura.jpg',
-    isNew: true,
-  },
-  {
-    id: 'pearl-minaudiere',
-    name: 'Pearl Encrusted Minaudière',
-    category: 'Bags',
-    price: '₦65,000',
-    description: 'Vintage-inspired hardcase clutch completely covered in freshwater pearls.',
-    imageSrc: '/media/store/robe-monarch.jpg',
-  },
-  {
-    id: 'empress-stiletto',
-    name: 'Empress Satin & Pearl Pumps',
-    category: 'Shoes',
-    price: '₦120,000',
-    description: 'Italian silk satin pointed-toe stilettos crowned with freshwater pearl embellishments.',
-    imageSrc: '/media/store/shoes-empress.jpg',
-    isNew: true,
-  },
-  {
-    id: 'crystal-slingback',
-    name: 'Crystal Bow Slingback Heels',
-    category: 'Shoes',
-    price: '₦95,000',
-    originalPrice: '₦120,000',
-    description: 'Elegant transparent mesh slingbacks with oversized crystal bow detail.',
-    imageSrc: '/media/store/veil-celestial.jpg',
   },
   {
     id: 'oud-imperiale',
@@ -190,7 +158,7 @@ export const STORE_SHOWCASE: StoreItem[] = [
     category: 'Perfumes',
     price: '₦95,000',
     description: 'A heady fusion of royal amber, smoky Cambodian oud, and velvety Bulgarian damask rose.',
-    imageSrc: '/media/store/perfume-oud.jpg',
+    imageSrc: '/store/perfume/per1.png',
   },
   {
     id: 'floral-symphony',
@@ -199,7 +167,7 @@ export const STORE_SHOWCASE: StoreItem[] = [
     price: '₦75,000',
     originalPrice: '₦85,000',
     description: 'A delicate blend of jasmine, white peony, and warm vanilla musk for elegant wear.',
-    imageSrc: '/media/store/perfume-oud.jpg',
+    imageSrc: '/store/perfume/per3.png',
     isNew: true,
   },
 ];
@@ -321,60 +289,99 @@ export const STATS_LIST: StatItem[] = [
 /* ─────────────────────────────────────────────────────────────
  * PORTFOLIO SHOWCASE (4 Photos + 2 Videos)
  * ───────────────────────────────────────────────────────────── */
-export const PORTFOLIO_LIST: PortfolioItem[] = [
+export const PORTFOLIO_IMAGES: PortfolioItem[] = [
   {
-    id: 'portfolio-1',
-    title: 'The Royal Delta Bride',
+    id: 'portfolio-image-1',
+    title: 'LA BOHEME',
     category: 'Bridal Gowns',
     mediaType: 'image',
-    mediaSrc: '/media/portfolio/bridal-royal-delta.jpg',
+    mediaSrc: '/portfolio/bride-to-be.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-2',
+    title: 'JARDIN DE LUMIERE',
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/bride1.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-3',
+    title: 'THE NYMPH',
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/bride2.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-4',
+    title: 'MODERN CLASSIC',
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/bride3.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-5',
+    title: 'ASOEBI EMERALD',
+    category: 'Asoebi',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/asoebi.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-6',
+    title: 'ASOEBI RUBY',
+    category: 'Asoebi',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/aseobi2.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-7',
+    title: 'ETHEREAL GRACE',
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/bride4.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  },
+  {
+    id: 'portfolio-image-8',
+    title: 'TIMELESS BEAUTY',
+    category: 'Bridal Gowns',
+    mediaType: 'image',
+    mediaSrc: '/portfolio/bride5.webp',
+    aspectRatio: 'portrait',
+    caption: 'Discover real stories of women who chose Rivo Vogue.',
+  }
+];
+
+export const PORTFOLIO_VIDEOS: PortfolioItem[] = [
+  {
+    id: 'portfolio-video-1',
+    title: 'The Royal Delta Bride',
+    category: 'Bridal Gowns',
+    mediaType: 'video',
+    mediaSrc: 'https://res.cloudinary.com/dwrcqtkjc/video/upload/v1787923377/port1_fqm0h8.mp4',
     aspectRatio: 'portrait',
     caption: 'Hand-beaded cathedral gown featuring ivory Swarovski crystals and embroidered Chantilly lace overlay.',
   },
   {
-    id: 'portfolio-2',
+    id: 'portfolio-video-2',
     title: 'Catwalk & Silhouette Movement',
     category: 'Bespoke Couture',
     mediaType: 'video',
-    mediaSrc: '/media/portfolio/couture-walk.mp4',
+    mediaSrc: 'https://res.cloudinary.com/dwrcqtkjc/video/upload/v1787923934/port2_yoh7l2.mp4',
     aspectRatio: 'portrait',
     caption: 'Fluid silk georgette drape and structural corsetry in motion during bridal preview.',
-  },
-  {
-    id: 'portfolio-3',
-    title: 'Regal Emerald Asoebi Symphony',
-    category: 'Asoebi & Party',
-    mediaType: 'image',
-    mediaSrc: '/media/portfolio/asoebi-emerald.jpg',
-    aspectRatio: 'square',
-    caption: 'Coordinated bridal train in rich emerald green damask with custom beaded accents.',
-  },
-  {
-    id: 'portfolio-4',
-    title: 'Fashion House Pattern & Fitting Masterclass',
-    category: 'Academy',
-    mediaType: 'video',
-    mediaSrc: '/media/portfolio/academy-masterclass.mp4',
-    aspectRatio: 'landscape',
-    caption: 'Advanced students drafting custom bridal foundations and boning structures.',
-  },
-  {
-    id: 'portfolio-5',
-    title: 'Crimson Velvet Gala Evening Gown',
-    category: 'Bespoke Couture',
-    mediaType: 'image',
-    mediaSrc: '/media/portfolio/gala-crimson.jpg',
-    aspectRatio: 'portrait',
-    caption: 'Architectural off-shoulder neckline paired with a dramatic thigh-high slit and micro-sequins.',
-  },
-  {
-    id: 'portfolio-6',
-    title: 'Minimalist Modern Bridal Satin',
-    category: 'Bridal Gowns',
-    mediaType: 'image',
-    mediaSrc: '/media/portfolio/bridal-minimal-satin.jpg',
-    aspectRatio: 'square',
-    caption: 'Sculpted mermaid silhouette in heavyweight duchess satin with detachable bishop sleeves.',
   },
 ];
 

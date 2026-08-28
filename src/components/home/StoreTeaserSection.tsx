@@ -89,16 +89,47 @@ export default function StoreTeaserSection() {
           {STORE_SHOWCASE.map((item, index) => (
             <motion.article
               key={item.id}
-              initial={{ opacity: 0, x: 40, scale: 0.98 }}
-              whileInView={{ opacity: 1, x: 0, scale: 1 }}
+              initial="hidden"
+              whileInView="visible"
               viewport={{ once: true, margin: '-50px' }}
-              transition={{ duration: 0.8, delay: index * 0.1, ease: coutureEase }}
-              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl flex flex-col overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/40 hover:shadow-[0_20px_60px_-15px_rgba(223,177,91,0.2)] snap-start"
+              variants={{
+                hidden: { opacity: 0, x: 40, scale: 0.98 },
+                visible: { 
+                  opacity: 1, 
+                  x: 0, 
+                  scale: 1, 
+                  transition: { duration: 0.8, delay: index * 0.1, ease: coutureEase } 
+                }
+              }}
+              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl flex flex-col overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/40 hover:shadow-[0_20px_60px_-15px_rgba(223,177,91,0.2)] snap-start max-md:!opacity-100 max-md:![transform:none]"
             >
               {/* Media Container */}
               <div className="relative aspect-[4/5] w-full bg-brand-charcoal overflow-hidden group-hover:border-brand-gold/30 transition-colors">
-                <img src={item.imageSrc} alt={item.name} className="absolute inset-0 w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" />
-                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-transparent to-transparent z-10" />
+                {/* Base Image */}
+                <img src={item.imageSrc} alt={item.name} className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-700 group-hover:scale-105" />
+                
+                {/* Desktop Hover Image */}
+                {item.hoverImageSrc && (
+                  <img src={item.hoverImageSrc} alt={`${item.name} alternate view`} className="absolute inset-0 w-full h-full object-contain object-center transition-all duration-700 group-hover:scale-105 opacity-0 lg:group-hover:opacity-100 hidden lg:block" />
+                )}
+
+                {/* Mobile Auto Reveal Image */}
+                {item.hoverImageSrc && (
+                  <motion.img 
+                    src={item.hoverImageSrc} 
+                    alt={`${item.name} alternate view mobile`} 
+                    className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-700 lg:hidden"
+                    variants={{
+                      hidden: { opacity: 0 },
+                      visible: { 
+                        opacity: [0, 0, 1, 1, 0],
+                        transition: { duration: 10, repeat: Infinity, times: [0, 0.45, 0.5, 0.95, 1], ease: "easeInOut" }
+                      }
+                    }}
+                  />
+                )}
+                
+                <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-transparent to-transparent z-10 pointer-events-none" />
 
                 {/* Category & Tags */}
                 <div className="absolute top-4 left-4 flex gap-3 z-20">
@@ -167,7 +198,7 @@ export default function StoreTeaserSection() {
               whileInView={{ opacity: 1, x: 0, scale: 1 }}
               viewport={{ once: true, margin: '-50px' }}
               transition={{ duration: 0.8, delay: STORE_SHOWCASE.length * 0.05, ease: coutureEase }}
-              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-brand-charcoal border border-brand-gold/20 flex flex-col overflow-hidden transition-all duration-500 hover:bg-brand-gold/10 hover:border-brand-gold/40 snap-start"
+              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-brand-charcoal border border-brand-gold/20 flex flex-col overflow-hidden transition-all duration-500 hover:bg-brand-gold/10 hover:border-brand-gold/40 snap-start max-md:!opacity-100 max-md:![transform:none]"
             >
               <Link href="/store" className="flex flex-col items-center justify-center h-full gap-6 text-brand-gold w-full p-8">
                 <div className="w-20 h-20 rounded-full border border-brand-gold/30 flex items-center justify-center group-hover:bg-brand-gold group-hover:text-brand-charcoal transition-all duration-500 shadow-[0_0_30px_rgba(223,177,91,0.1)] group-hover:shadow-[0_0_40px_rgba(223,177,91,0.3)]">
