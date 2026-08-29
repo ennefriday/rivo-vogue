@@ -329,7 +329,7 @@ export const PORTFOLIO_IMAGES: PortfolioItem[] = [
   {
     id: 'portfolio-image-5',
     title: 'ASOEBI EMERALD',
-    category: 'Asoebi',
+    category: 'Asoebi & Party',
     mediaType: 'image',
     mediaSrc: '/portfolio/asoebi.webp',
     aspectRatio: 'portrait',
@@ -338,7 +338,7 @@ export const PORTFOLIO_IMAGES: PortfolioItem[] = [
   {
     id: 'portfolio-image-6',
     title: 'ASOEBI RUBY',
-    category: 'Asoebi',
+    category: 'Asoebi & Party',
     mediaType: 'image',
     mediaSrc: '/portfolio/aseobi2.webp',
     aspectRatio: 'portrait',
