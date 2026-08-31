@@ -373,8 +373,552 @@ export const storeProducts: Product[] = [
       { label: 'Type', value: 'Eau de Parfum' },
       { label: 'Family', value: 'White Floral / Sweet' }
     ],
+  },  {
+    "id": "bag-gen-1",
+    "slug": "luxury-bag-1",
+    "name": "Luxury Bag 1",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_1.jpg",
+    "hoverImage": "/store/bag/bag_1.jpg",
+    "galleryImages": [
+      "/store/bag/bag_1.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": true,
+    "isNewArrival": false
   },
+  {
+    "id": "bag-gen-2",
+    "slug": "luxury-bag-2",
+    "name": "Luxury Bag 2",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_2.jpg",
+    "hoverImage": "/store/bag/bag_2.jpg",
+    "galleryImages": [
+      "/store/bag/bag_2.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-3",
+    "slug": "luxury-bag-3",
+    "name": "Luxury Bag 3",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_3.jpg",
+    "hoverImage": "/store/bag/bag_3.jpg",
+    "galleryImages": [
+      "/store/bag/bag_3.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-4",
+    "slug": "luxury-bag-4",
+    "name": "Luxury Bag 4",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_4.jpg",
+    "hoverImage": "/store/bag/bag_4.jpg",
+    "galleryImages": [
+      "/store/bag/bag_4.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-5",
+    "slug": "luxury-bag-5",
+    "name": "Luxury Bag 5",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_5.jpg",
+    "hoverImage": "/store/bag/bag_5.jpg",
+    "galleryImages": [
+      "/store/bag/bag_5.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-6",
+    "slug": "luxury-bag-6",
+    "name": "Luxury Bag 6",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_6.jpg",
+    "hoverImage": "/store/bag/bag_6.jpg",
+    "galleryImages": [
+      "/store/bag/bag_6.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-7",
+    "slug": "luxury-bag-7",
+    "name": "Luxury Bag 7",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_7.jpg",
+    "hoverImage": "/store/bag/bag_7.jpg",
+    "galleryImages": [
+      "/store/bag/bag_7.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "bag-gen-8",
+    "slug": "luxury-bag-8",
+    "name": "Luxury Bag 8",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_8.jpg",
+    "hoverImage": "/store/bag/bag_8.jpg",
+    "galleryImages": [
+      "/store/bag/bag_8.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": true
+  },
+  {
+    "id": "bag-gen-9",
+    "slug": "luxury-bag-9",
+    "name": "Luxury Bag 9",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_9.jpg",
+    "hoverImage": "/store/bag/bag_9.jpg",
+    "galleryImages": [
+      "/store/bag/bag_9.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": true
+  },
+  {
+    "id": "bag-gen-10",
+    "slug": "luxury-bag-10",
+    "name": "Luxury Bag 10",
+    "category": "Bags",
+    "price": "₦210,000",
+    "shortDescription": "An eye-catching luxury bag, beautifully presented.",
+    "fullDescription": "Elevate your wardrobe with this stunning luxury bag featuring an exquisite design and premium materials.",
+    "coverImage": "/store/bag/bag_10.jpg",
+    "hoverImage": "/store/bag/bag_10.jpg",
+    "galleryImages": [
+      "/store/bag/bag_10.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Availability",
+        "value": "In Stock"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": true
+  },
+  {
+    "id": "shoe-gen-1",
+    "slug": "luxury-shoe-1",
+    "name": "Luxury Shoe 1",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_1.jpg",
+    "hoverImage": "/store/shoes/shoe_1.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_1.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-2",
+    "slug": "luxury-shoe-2",
+    "name": "Luxury Shoe 2",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_2.jpg",
+    "hoverImage": "/store/shoes/shoe_2.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_2.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-3",
+    "slug": "luxury-shoe-3",
+    "name": "Luxury Shoe 3",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_3.jpg",
+    "hoverImage": "/store/shoes/shoe_3.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_3.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-4",
+    "slug": "luxury-shoe-4",
+    "name": "Luxury Shoe 4",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_4.jpg",
+    "hoverImage": "/store/shoes/shoe_4.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_4.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-5",
+    "slug": "luxury-shoe-5",
+    "name": "Luxury Shoe 5",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_5.jpg",
+    "hoverImage": "/store/shoes/shoe_5.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_5.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-6",
+    "slug": "luxury-shoe-6",
+    "name": "Luxury Shoe 6",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_6.jpg",
+    "hoverImage": "/store/shoes/shoe_6.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_6.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-7",
+    "slug": "luxury-shoe-7",
+    "name": "Luxury Shoe 7",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_7.jpg",
+    "hoverImage": "/store/shoes/shoe_7.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_7.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-8",
+    "slug": "luxury-shoe-8",
+    "name": "Luxury Shoe 8",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_8.jpg",
+    "hoverImage": "/store/shoes/shoe_8.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_8.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-9",
+    "slug": "luxury-shoe-9",
+    "name": "Luxury Shoe 9",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_9.jpg",
+    "hoverImage": "/store/shoes/shoe_9.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_9.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "shoe-gen-10",
+    "slug": "luxury-shoe-10",
+    "name": "Luxury Shoe 10",
+    "category": "Shoes",
+    "price": "₦180,000",
+    "shortDescription": "An elegant women's designer shoe.",
+    "fullDescription": "Step into luxury. These beautiful shoes are meticulously crafted for elegance and comfort.",
+    "coverImage": "/store/shoes/shoe_10.jpg",
+    "hoverImage": "/store/shoes/shoe_10.jpg",
+    "galleryImages": [
+      "/store/shoes/shoe_10.jpg"
+    ],
+    "details": [
+      {
+        "label": "Material",
+        "value": "Premium Leather"
+      },
+      {
+        "label": "Sizes",
+        "value": "EU 37 - 42"
+      }
+    ],
+    "isFeatured": false,
+    "isNewArrival": false
+  },
+  {
+    "id": "perfume-gen-11",
+    "slug": "signature-scent-11",
+    "category": "Perfumes",
+    "name": "Signature Scent 11",
+    "price": "₦75,000",
+    "shortDescription": "An alluring blend of premium ingredients.",
+    "fullDescription": "A captivating fragrance that leaves a lasting impression, perfect for both day and evening wear.",
+    "coverImage": "/store/perfume/per11.png",
+    "hoverImage": "/store/perfume/per11.png",
+    "galleryImages": [
+      "/store/perfume/per11.png"
+    ],
+    "details": [
+      {
+        "label": "Volume",
+        "value": "100ml / 3.4 fl oz"
+      },
+      {
+        "label": "Type",
+        "value": "Eau de Parfum"
+      }
+    ]
+  }
 ];
+
 
 export function getProductBySlug(slug: string): Product | undefined {
   return storeProducts.find((p) => p.slug === slug);

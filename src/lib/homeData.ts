@@ -170,6 +170,42 @@ export const STORE_SHOWCASE: StoreItem[] = [
     imageSrc: '/store/perfume/per3.png',
     isNew: true,
   },
+  {
+    id: 'luxury-bag-5',
+    name: 'Luxury Bag 5',
+    category: 'Bags',
+    price: '₦210,000',
+    description: 'An eye-catching luxury bag, beautifully presented.',
+    imageSrc: '/store/bag/bag_5.jpg',
+    hoverImageSrc: '/store/bag/bag_5.jpg',
+  },
+  {
+    id: 'luxury-bag-7',
+    name: 'Luxury Bag 7',
+    category: 'Bags',
+    price: '₦210,000',
+    description: 'An eye-catching luxury bag, beautifully presented.',
+    imageSrc: '/store/bag/bag_7.jpg',
+    hoverImageSrc: '/store/bag/bag_7.jpg',
+  },
+  {
+    id: 'luxury-shoe-4',
+    name: 'Luxury Shoe 4',
+    category: 'Shoes',
+    price: '₦180,000',
+    description: 'An elegant women\'s designer shoe.',
+    imageSrc: '/store/shoes/shoe_4.jpg',
+    hoverImageSrc: '/store/shoes/shoe_4.jpg',
+  },
+  {
+    id: 'luxury-shoe-5',
+    name: 'Luxury Shoe 5',
+    category: 'Shoes',
+    price: '₦180,000',
+    description: 'An elegant women\'s designer shoe.',
+    imageSrc: '/store/shoes/shoe_5.jpg',
+    hoverImageSrc: '/store/shoes/shoe_5.jpg',
+  }
 ];
 
 /* ─────────────────────────────────────────────────────────────
@@ -220,7 +256,7 @@ export const PROCESS_STEPS: ProcessStep[] = [
   {
     step: '04',
     title: 'Measurement & Fitting',
-    description: 'Experience precision body mapping in our Ughelli salon or virtual fitting guide.',
+    description: 'Experience precision body mapping in our Ughelli salon.',
   },
   {
     step: '05',
@@ -414,7 +450,7 @@ export const TESTIMONIALS_LIST: TestimonialItem[] = [
     clientName: 'Blessing A.',
     location: 'London, UK (Diaspora Bride)',
     role: 'Destination Bride',
-    quote: 'Planning my Delta State wedding from London was stress-free thanks to Rivo Vogue. The virtual fitting process was incredibly precise, and my gown fit like a glove upon my arrival in Nigeria.',
+    quote: 'Planning my Delta State wedding from London was stress-free thanks to Rivo Vogue. The fitting process was incredibly precise, and my gown fit like a glove upon my arrival in Nigeria.',
     serviceUsed: 'Custom Bespoke Bridal Couture',
     date: 'November 2025',
     imageSrc: '/media/testimonials/blessing.jpg',

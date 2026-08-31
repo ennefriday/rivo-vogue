@@ -9,6 +9,7 @@ import { ServiceProcess } from '@/components/services/ServiceProcess';
 import { PricingPackages } from '@/components/services/PricingPackages';
 import { ServiceFaq } from '@/components/services/ServiceFaq';
 import { ServicesCta } from '@/components/services/ServicesCta';
+import { PromoPackages } from '@/components/services/PromoPackages';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -46,8 +47,16 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
         <ServiceDetailHero service={service} />
         <ServiceOverview service={service} />
         <ServiceGallery service={service} />
+        
+        {/* Render Promo Packages exclusively for bridal-accessories as requested */}
+        {service.slug === 'bridal-accessories' && (
+          <PromoPackages />
+        )}
+        
         <ServiceProcess service={service} />
-        <PricingPackages service={service} />
+        {service.packages && service.packages.length > 0 && (
+          <PricingPackages service={service} />
+        )}
         <ServiceFaq service={service} />
         <ServicesCta />
       </main>

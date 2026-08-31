@@ -75,8 +75,12 @@ export function PricingPackages({ service }: { service: Service }) {
                 ))}
               </ul>
               
-              <Link 
-                href="/contact"
+              <a 
+                href={`https://wa.me/2347088835025?text=${encodeURIComponent(
+                  `Hello Rivo Vogue, I am interested in booking the ${pkg.name} (${pkg.price}) for my big day. Please let me know how to proceed.`
+                )}`}
+                target="_blank"
+                rel="noopener noreferrer"
                 className={`flex items-center justify-between w-full py-5 px-8 rounded-full text-[10px] uppercase tracking-[0.2em] font-medium transition-all duration-500 ${
                   pkg.isPremium 
                     ? 'bg-brand-gold text-brand-charcoal hover:bg-brand-ivory hover:shadow-xl hover:shadow-brand-gold/20' 
@@ -85,7 +89,7 @@ export function PricingPackages({ service }: { service: Service }) {
               >
                 <span>Reserve Package</span>
                 <ArrowRight className={`w-4 h-4 transition-transform duration-300 group-hover:translate-x-1 ${pkg.isPremium ? 'text-brand-pink' : 'text-brand-gold'}`} />
-              </Link>
+              </a>
             </motion.div>
           ))}
         </div>

@@ -1,103 +1,95 @@
 "use client";
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
 import Link from 'next/link';
 import { Product } from '@/lib/storeData';
-import { ArrowUpRight, ShoppingBag } from 'lucide-react';
+import { ShoppingBag, Eye } from 'lucide-react';
 
 export function ProductRevealCard({ product }: { product: Product }) {
-  const [isHovered, setIsHovered] = useState(false);
+  const [imgLoaded, setImgLoaded] = useState(false);
+
+  const whatsappNumber = "2347088835025";
+  const message = `Hello Rivo Vogue, I'd like to order the ${product.name} (${product.price}). Please share the details.`;
+  const whatsappLink = `https://wa.me/${whatsappNumber}?text=${encodeURIComponent(message)}`;
 
   return (
-    <Link 
-      href={`/store/${product.slug}`}
-      className="group block relative w-full aspect-[3/4] overflow-hidden rounded-xl border border-brand-ivory/10 bg-brand-charcoal"
-      onMouseEnter={() => setIsHovered(true)}
-      onMouseLeave={() => setIsHovered(false)}
-    >
-      {/* Base Image */}
-      <img 
-        src={product.coverImage} 
-        alt={product.name}
-        className="absolute inset-0 w-full h-full object-cover object-top transition-transform duration-1000 group-hover:scale-105"
-      />
-      
-      {/* Desktop Reveal Image (Hover) */}
-      {product.hoverImage && product.hoverImage !== product.coverImage && (
-        <img 
-          src={product.hoverImage} 
-          alt={`${product.name} Lifestyle`}
-          className="absolute inset-0 w-full h-full object-contain object-center transition-all duration-700 opacity-0 lg:group-hover:opacity-100 hidden lg:block"
-        />
-      )}
-
-      {/* Mobile Auto Reveal Image */}
-      {product.hoverImage && product.hoverImage !== product.coverImage && (
-        <motion.img 
-          src={product.hoverImage} 
-          alt={`${product.name} Lifestyle Mobile`} 
-          className="absolute inset-0 w-full h-full object-contain object-center transition-transform duration-700 lg:hidden"
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ margin: "100px 0px" }}
-          variants={{
-            hidden: { opacity: 0 },
-            visible: { 
-              opacity: [0, 0, 1, 1, 0],
-              transition: { duration: 10, repeat: Infinity, times: [0, 0.45, 0.5, 0.95, 1], ease: "easeInOut" }
-            }
-          }}
-        />
-      )}
-
-      {/* Gradient Overlay */}
-      <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/90 via-brand-charcoal/20 to-transparent opacity-80" />
-
-      {/* Badges Top Left */}
-      <div className="absolute top-4 left-4 z-10 flex gap-2">
-        <span className="bg-white/10 backdrop-blur-md text-brand-ivory text-[9px] uppercase tracking-widest px-3 py-1.5 rounded-full border border-white/20">
-          {product.category}
-        </span>
-      </div>
-
-      {/* Initial Info (Bottom left) */}
-      <motion.div 
-        animate={{ y: isHovered ? -15 : 0, opacity: isHovered ? 0 : 1 }}
-        transition={{ duration: 0.4 }}
-        className="absolute bottom-6 left-6 right-6 z-10"
+    <div className="group flex flex-col">
+      {/* Image container */}
+      <Link
+        href={`/store/${product.slug}`}
+        className="relative block aspect-[3/4] overflow-hidden rounded-lg bg-[#111] border border-brand-ivory/[0.06]"
       >
-        <h3 className="font-serif text-2xl font-light text-brand-ivory mb-1">
-          {product.name}
-        </h3>
-        <p className="font-sans font-medium text-brand-gold text-sm tracking-wide">
-          {product.price}
-        </p>
-      </motion.div>
+        {/* Skeleton pulse */}
+        {!imgLoaded && (
+          <div className="absolute inset-0 bg-brand-ivory/[0.03] animate-pulse" />
+        )}
 
-      {/* Sliding Reveal Panel (Hover) */}
-      <motion.div 
-        initial={{ y: "100%" }}
-        animate={{ y: isHovered ? "0%" : "100%" }}
-        transition={{ duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
-        className="absolute bottom-0 left-0 right-0 bg-brand-charcoal/95 backdrop-blur-xl border-t border-brand-gold/20 p-6 z-20 flex flex-col"
-      >
-        <h3 className="font-serif text-xl font-light text-brand-gold mb-2">
-          {product.name}
-        </h3>
-        <p className="text-xs text-brand-ivory/60 font-light line-clamp-2 mb-6">
+        <img
+          src={product.coverImage}
+          alt={product.name}
+          onLoad={() => setImgLoaded(true)}
+          className={`w-full h-full object-cover transition-transform duration-700 group-hover:scale-105 ${imgLoaded ? 'opacity-100' : 'opacity-0'}`}
+        />
+
+        {/* Hover image (desktop) */}
+        {product.hoverImage && product.hoverImage !== product.coverImage && (
+          <img
+            src={product.hoverImage}
+            alt={`${product.name} alternate view`}
+            className="absolute inset-0 w-full h-full object-cover opacity-0 lg:group-hover:opacity-100 transition-opacity duration-500 hidden lg:block"
+          />
+        )}
+
+        {/* Gradient overlay on hover */}
+        <div className="absolute inset-0 bg-gradient-to-t from-brand-charcoal/70 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+
+        {/* Badges */}
+        <div className="absolute top-2.5 left-2.5 flex gap-1.5 z-10">
+          {product.isNewArrival && (
+            <span className="bg-brand-gold text-brand-charcoal text-[8px] uppercase tracking-widest font-bold px-2 py-0.5 rounded-sm">
+              New
+            </span>
+          )}
+          <span className="bg-brand-charcoal/70 backdrop-blur-sm text-brand-ivory/80 text-[8px] uppercase tracking-widest px-2 py-0.5 rounded-sm border border-brand-ivory/10">
+            {product.category}
+          </span>
+        </div>
+
+        {/* Quick-action buttons on hover */}
+        <div className="absolute bottom-3 left-3 right-3 flex gap-2 opacity-0 translate-y-3 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 z-10">
+          <span className="flex-1 flex items-center justify-center gap-1.5 py-2.5 bg-brand-charcoal/80 backdrop-blur-md rounded-md text-brand-ivory text-[10px] uppercase tracking-wider font-medium border border-brand-ivory/10 hover:border-brand-gold/30 transition-colors">
+            <Eye className="w-3 h-3" />
+            View
+          </span>
+        </div>
+      </Link>
+
+      {/* Product info below card */}
+      <div className="mt-3 space-y-1 px-0.5">
+        <Link href={`/store/${product.slug}`}>
+          <h3 className="font-serif text-sm font-light text-brand-ivory leading-snug line-clamp-1 group-hover:text-brand-gold transition-colors duration-200">
+            {product.name}
+          </h3>
+        </Link>
+        <p className="font-sans text-[11px] text-brand-ivory/45 font-light line-clamp-1">
           {product.shortDescription}
         </p>
-        
-        <div className="flex items-center justify-between mt-auto">
-          <span className="font-sans font-medium text-brand-ivory text-sm tracking-wide">
+        <div className="flex items-center justify-between pt-1">
+          <span className="font-sans text-sm font-medium text-brand-ivory tracking-wide">
             {product.price}
           </span>
-          <div className="w-10 h-10 rounded-full bg-brand-gold flex items-center justify-center group-hover:scale-110 transition-transform">
-            <ArrowUpRight className="w-4 h-4 text-brand-charcoal" />
-          </div>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            onClick={(e) => e.stopPropagation()}
+            className="flex items-center gap-1 text-[9px] uppercase tracking-widest font-medium text-brand-gold hover:text-brand-ivory transition-colors duration-200"
+          >
+            <ShoppingBag className="w-3 h-3" />
+            Order
+          </a>
         </div>
-      </motion.div>
-    </Link>
+      </div>
+    </div>
   );
 }
