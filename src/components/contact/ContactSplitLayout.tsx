@@ -86,8 +86,8 @@ export function ContactSplitLayout() {
                 <div>
                   <h3 className="font-serif text-lg text-brand-ivory mb-1">Fashion House Address</h3>
                   <p className="text-sm text-brand-ivory/60 font-light leading-relaxed">
-                    Ughelli, Delta State<br />
-                    Nigeria
+                    109 Upper Afiesere Rd,<br />
+                    Ughelli 333105, Delta
                   </p>
                 </div>
               </div>

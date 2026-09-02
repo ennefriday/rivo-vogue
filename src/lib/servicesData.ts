@@ -62,9 +62,7 @@ export const servicesList: Service[] = [
     coverImage: '/sercard/bridecard.webp',
     videoOverview: {
       src: 'https://res.cloudinary.com/dwrcqtkjc/video/upload/v1787923934/port2_yoh7l2.mp4',
-      overlayText: 'Experience True Elegance',
-      buttonText: 'Shop Gowns',
-      buttonLink: '/store?category=Dresses'
+      overlayText: 'Experience True Elegance'
     },
     galleryImages: [
       { id: 1, src: '/portfolio/bride-to-be.webp', alt: 'Bride to Be', aspect: 'portrait' },
@@ -170,9 +168,16 @@ export const servicesList: Service[] = [
     title: 'Designer Bags & Shoes',
     shortDescription: 'Step out in style with our premium selection of designer footwear and handbags.',
     fullDescription: 'Elevate any outfit with our handpicked collection of luxury bags and shoes. Crafted from the finest materials, our accessories are designed to make a statement and stand the test of time.',
-    coverImage: '/sercard/bagandshoes.webp',
+    coverImage: '/services/designer_bag_hero.jpg',
     galleryImages: [{ id: 1, src: '/placeholder-1.jpg', alt: 'Designer Bag', aspect: 'square' }],
-    process: [{ step: '01', title: 'Browse', description: 'Explore our latest collections.' }],
+    process: [
+      { step: '01', title: 'Browse Collection', description: 'Explore our available shoes, perfumes, and dresses.' },
+      { step: '02', title: 'Choose Your Favourite', description: 'Select the product you love and view its details.' },
+      { step: '03', title: 'Buy via WhatsApp', description: 'Click Buy Now to generate a custom WhatsApp message with your order details, then send it to place your order.' },
+      { step: '04', title: 'Complete Payment', description: 'Receive payment details and make payment directly to secure your order.' },
+      { step: '05', title: 'Confirm Your Order', description: 'Your order is confirmed once payment is verified.' },
+      { step: '06', title: 'Delivery or Pickup', description: 'Choose your preferred delivery option or arrange pickup.' }
+    ],
     packages: [{ name: 'Premium Footwear', price: 'From ₦150,000', features: ['Authentic designer pieces'] }],
     faqs: [{ question: 'Are these authentic?', answer: 'Yes, we source directly from authorized dealers.' }]
   },
@@ -181,9 +186,16 @@ export const servicesList: Service[] = [
     title: 'Luxury Perfumes',
     shortDescription: 'Leave a lasting impression with our exclusive collection of captivating scents.',
     fullDescription: 'Discover your signature scent from our exquisite range of luxury perfumes. Sourced from the finest perfumeries, these fragrances are designed to captivate and endure.',
-    coverImage: '/sercard/perfume.webp',
+    coverImage: '/services/luxury_perfume_hero.jpg',
     galleryImages: [{ id: 1, src: '/placeholder-1.jpg', alt: 'Luxury Perfume', aspect: 'portrait' }],
-    process: [{ step: '01', title: 'Scent Profiling', description: 'Find a scent that matches your personality.' }],
+    process: [
+      { step: '01', title: 'Browse Collection', description: 'Explore our available shoes, perfumes, and dresses.' },
+      { step: '02', title: 'Choose Your Favourite', description: 'Select the product you love and view its details.' },
+      { step: '03', title: 'Buy via WhatsApp', description: 'Click Buy Now to generate a custom WhatsApp message with your order details, then send it to place your order.' },
+      { step: '04', title: 'Complete Payment', description: 'Receive payment details and make payment directly to secure your order.' },
+      { step: '05', title: 'Confirm Your Order', description: 'Your order is confirmed once payment is verified.' },
+      { step: '06', title: 'Delivery or Pickup', description: 'Choose your preferred delivery option or arrange pickup.' }
+    ],
     packages: [{ name: 'Signature Scent', price: 'From ₦85,000', features: ['Long-lasting eau de parfum'] }],
     faqs: [{ question: 'Do you offer scent consultations?', answer: 'Yes, our experts can help you find your perfect match.' }]
   },
@@ -193,10 +205,18 @@ export const servicesList: Service[] = [
     shortDescription: 'Turn your passion into a profession with hands-on training from industry experts.',
     fullDescription: 'Turn your passion into a profession. The Rivo Vogue Fashion Academy offers intense, practical training in pattern drafting, sewing techniques, and fashion business management.',
     coverImage: '/sercard/academy.webp',
-    galleryImages: [{ id: 1, src: '/placeholder-1.jpg', alt: 'Student Working', aspect: 'portrait' }],
+    galleryImages: [
+      { id: 1, src: '/services/academy_workshop.jpg', alt: 'Masterclass Workshop', aspect: 'landscape' },
+      { id: 2, src: '/services/academy_students.jpg', alt: 'Students Collaborating', aspect: 'landscape' }
+    ],
     process: [{ step: '01', title: 'Enrollment', description: 'Choose your preferred program and register.' }],
     packages: [{ name: 'Beginners Course', price: '₦150,000', features: ['3 months duration'] }],
-    faqs: [{ question: 'Do I need to bring my own sewing machine?', answer: 'No, our academy is fully equipped.' }]
+    faqs: [
+      { question: 'Do I need to bring my own sewing machine?', answer: 'No, our academy is fully equipped.' },
+      { question: 'Do you offer flexible payment plans?', answer: 'Yes, we offer convenient installment plans for our comprehensive courses to make learning accessible.' },
+      { question: 'Will I get a certificate upon completion?', answer: 'Yes, you will receive a recognized certificate from Rivo Vogue Fashion Academy upon successful graduation.' },
+      { question: 'Do you assist with job placement or starting a business?', answer: 'Our curriculum includes a robust fashion business management module to help you confidently launch your own brand.' }
+    ]
   }
 ];
 

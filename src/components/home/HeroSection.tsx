@@ -1,44 +1,61 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import Link from 'next/link';
 import Image from 'next/image';
-import { motion, useScroll, useTransform, MotionValue } from 'framer-motion';
-import { ArrowUpRight, ChevronDown } from 'lucide-react';
+import { motion } from 'framer-motion';
+import { ArrowUpRight } from 'lucide-react';
 import { coutureEase } from '@/lib/animations';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
 
-const Word = ({ children, progress, range }: { children: string, progress: MotionValue<number>, range: [number, number] }) => {
-  // Mobile optimization: Use opacity + slight Y translate, will-change to force hardware acceleration
-  const opacity = useTransform(progress, range, [0.1, 1]);
-  const y = useTransform(progress, range, [10, 0]);
-  
-  let customClass = "mr-[0.25em] mb-[0.1em] inline-block will-change-[opacity,transform] ";
-  
-  const textLower = children.toLowerCase();
-  const isGold = textLower.includes("wedding") || textLower.includes("gown") || textLower.includes("asoebi") || textLower.includes("confident");
-  const isGradient = textLower.includes("quality") || textLower.includes("fashion") || textLower.includes("budget") || textLower.includes("style");
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
 
-  if (isGold) {
-    customClass += "italic text-brand-gold ";
-  } else if (isGradient) {
-    customClass += "font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-ivory to-brand-gold ";
-  }
-
-  return (
-    <motion.span style={{ opacity, y }} className={customClass}>
-      {children}
-    </motion.span>
-  );
-};
+const rawText = "From unforgettable wedding gowns to perfectly sculpted asoebi and everyday elegance, we create quality fashion tailored to your body, your style, and your budget — so you always feel confident in what you wear.";
 
 export default function HeroSection() {
-  const textRef = useRef<HTMLDivElement>(null);
-  const { scrollYProgress } = useScroll({
-    target: textRef,
-    offset: ["start 90%", "center 50%"]
-  });
+  const textContainerRef = useRef<HTMLHeadingElement>(null);
+  const videoRef = useRef<HTMLVideoElement>(null);
 
-  const rawText = "From unforgettable wedding gowns to perfectly sculpted asoebi and everyday elegance, we create quality fashion tailored to your body, your style, and your budget — so you always feel confident in what you wear.";
+  // Global video pause listener for when the lightbox opens
+  useEffect(() => {
+    const handlePause = () => videoRef.current?.pause();
+    const handlePlay = () => videoRef.current?.play().catch(() => {});
+
+    window.addEventListener('pause-background-videos', handlePause);
+    window.addEventListener('play-background-videos', handlePlay);
+
+    return () => {
+      window.removeEventListener('pause-background-videos', handlePause);
+      window.removeEventListener('play-background-videos', handlePlay);
+    };
+  }, []);
+
+  // GSAP Text Reveal
+  useGSAP(() => {
+    if (!textContainerRef.current) return;
+    const words = textContainerRef.current.querySelectorAll('.reveal-word');
+    
+    gsap.fromTo(words, 
+      { opacity: 0.1, y: 15 },
+      {
+        opacity: 1,
+        y: 0,
+        stagger: 0.05,
+        ease: 'power2.out',
+        scrollTrigger: {
+          trigger: textContainerRef.current,
+          start: 'top 85%',
+          end: 'center 45%',
+          scrub: 1,
+        }
+      }
+    );
+  }, { scope: textContainerRef });
+
   const words = rawText.split(" ");
 
   return (
@@ -47,6 +64,7 @@ export default function HeroSection() {
         
         {/* ─── Background Video ─── */}
         <video
+          ref={videoRef}
           autoPlay
           loop
           muted
@@ -113,21 +131,34 @@ export default function HeroSection() {
         
         {/* Overlapping Badge (Static, properly sized) */}
         <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 z-30 pointer-events-none w-24 h-24 sm:w-32 sm:h-32 md:w-40 md:h-40 lg:w-48 lg:h-48 xl:w-56 xl:h-56">
-           <Image src="/badge.png" alt="Rivo Vogue Signature Badge" fill className="object-contain" />
+           <Image src="/badge.png" alt="Rivo Vogue Signature Badge" fill className="object-contain" priority />
         </div>
 
-        <div 
-          ref={textRef}
-          className="max-w-[1000px] text-center relative z-10"
-        >
+        <div className="max-w-[1000px] text-center relative z-10">
           {/* Subtle background glow for the text */}
           <div className="absolute inset-0 bg-brand-gold/5 blur-[80px] rounded-full pointer-events-none" aria-hidden="true" />
           
-          <h2 className="font-serif text-[clamp(1.5rem,4vw,3.25rem)] text-brand-ivory font-light leading-[1.35] tracking-wide relative z-10 flex flex-wrap justify-center items-center">
+          <h2 
+            ref={textContainerRef}
+            className="font-serif text-[clamp(1.5rem,4vw,3.25rem)] text-brand-ivory font-light leading-[1.35] tracking-wide relative z-10 flex flex-wrap justify-center items-center"
+          >
             {words.map((word, i) => {
-              const start = i / words.length;
-              const end = start + (1 / words.length);
-              return <Word key={i} progress={scrollYProgress} range={[start, end]}>{word}</Word>;
+              const textLower = word.toLowerCase();
+              const isGold = textLower.includes("wedding") || textLower.includes("gown") || textLower.includes("asoebi") || textLower.includes("confident");
+              const isGradient = textLower.includes("quality") || textLower.includes("fashion") || textLower.includes("budget") || textLower.includes("style");
+              
+              let customClass = "reveal-word mr-[0.25em] mb-[0.1em] inline-block will-change-[opacity,transform] ";
+              if (isGold) {
+                customClass += "italic text-brand-gold ";
+              } else if (isGradient) {
+                customClass += "font-medium text-transparent bg-clip-text bg-gradient-to-r from-brand-ivory to-brand-gold ";
+              }
+
+              return (
+                <span key={i} className={customClass}>
+                  {word}
+                </span>
+              );
             })}
           </h2>
         </div>
@@ -135,4 +166,3 @@ export default function HeroSection() {
     </>
   );
 }
-

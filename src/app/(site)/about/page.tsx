@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import ScrollThemeWrapper from '@/components/layout/ScrollThemeWrapper';
 import { AboutHero } from '@/components/about/AboutHero';
 import { OurStory } from '@/components/about/OurStory';
-import { WhoWeServe } from '@/components/about/WhoWeServe';
+import { VisionMission } from '@/components/about/VisionMission';
 import { MeetTheFounder } from '@/components/about/MeetTheFounder';
 import { OurValues } from '@/components/about/OurValues';
 import { WorkshopGallery } from '@/components/about/WorkshopGallery';
@@ -20,7 +20,7 @@ export default function AboutPage() {
       <main className="min-h-screen pt-[100px]">
         <AboutHero />
         <OurStory />
-        <WhoWeServe />
+        <VisionMission />
         <MeetTheFounder />
         <OurValues />
         <WorkshopGallery />

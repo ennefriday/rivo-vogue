@@ -6,7 +6,9 @@ import {
   HeartHandshake, 
   Clock, 
   CheckCircle2, 
-  Sparkles
+  Sparkles,
+  Eye,
+  Target
 } from 'lucide-react';
 
 export const aboutHeroData = {
@@ -24,38 +26,17 @@ export const ourStoryData = {
   ]
 };
 
-export const whoWeServeData = {
-  title: "Who We Serve",
-  audiences: [
-    {
-      id: "brides",
-      title: "Brides-to-be",
-      description: "For the woman who wants her wedding day to be nothing short of a fairytale. We offer premium gown rentals, custom creations, and full styling.",
-      icon: Crown,
-      image: "/placeholder-audience-1.jpg"
-    },
-    {
-      id: "asoebi",
-      title: "Wedding Guests & Asoebi Groups",
-      description: "Stand out elegantly. Our bespoke tailoring ensures you and your group are the epitome of style at any event.",
-      icon: Users,
-      image: "/placeholder-audience-2.jpg"
-    },
-    {
-      id: "fashion-lovers",
-      title: "Fashion Lovers",
-      description: "Curated designer bags, luxury shoes, and premium perfumes for the modern, style-conscious woman.",
-      icon: Sparkles,
-      image: "/placeholder-audience-3.jpg"
-    },
-    {
-      id: "designers",
-      title: "Aspiring Designers",
-      description: "Our Fashion Academy provides hands-on, intensive training for those ready to turn their passion into a thriving career.",
-      icon: Scissors,
-      image: "/placeholder-audience-4.jpg"
-    }
-  ]
+export const visionMissionData = {
+  vision: {
+    title: "Our Vision",
+    description: "To be the ultimate destination for luxury fashion and bridal elegance in Nigeria, recognized for unparalleled craftsmanship, timeless designs, and empowering the next generation of creative fashion leaders.",
+    icon: Eye
+  },
+  mission: {
+    title: "Our Mission",
+    description: "To craft breathtaking, bespoke garments that celebrate individuality and heritage. We are dedicated to providing a premium, seamless experience for every client, while fostering a thriving community of skilled artisans through our fashion academy.",
+    icon: Target
+  }
 };
 
 export const founderData = {
@@ -104,12 +85,12 @@ export const ourValuesData = {
 export const workshopGalleryData = {
   title: "Inside the Fashion House",
   images: [
-    { id: 1, src: "/placeholder-gallery-1.jpg", alt: "Cutting process" },
-    { id: 2, src: "/placeholder-gallery-2.jpg", alt: "Sewing details" },
-    { id: 3, src: "/placeholder-gallery-3.jpg", alt: "Embroidery work" },
-    { id: 4, src: "/placeholder-gallery-4.jpg", alt: "Styling session" },
-    { id: 5, src: "/placeholder-gallery-5.jpg", alt: "Fittings" },
-    { id: 6, src: "/placeholder-gallery-6.jpg", alt: "Academy class" }
+    { id: 1, src: "/about/fashion_workspace.jpg", alt: "The Bridal & Fashion Workspace" },
+    { id: 2, src: "/about/dressmaking_progress.jpg", alt: "Dressmaking in Progress" },
+    { id: 3, src: "/about/bridal_craftsmanship.jpg", alt: "Bridal Gown Craftsmanship" },
+    { id: 4, src: "/about/fabric_selection.jpg", alt: "Fabric & Material Selection" },
+    { id: 5, src: "/about/fitting_finishing.jpg", alt: "Fitting & Finishing" },
+    { id: 6, src: "/about/finished.webp", alt: "Finished Creations on Display" }
   ]
 };
 

@@ -10,6 +10,9 @@ import { PricingPackages } from '@/components/services/PricingPackages';
 import { ServiceFaq } from '@/components/services/ServiceFaq';
 import { ServicesCta } from '@/components/services/ServicesCta';
 import { PromoPackages } from '@/components/services/PromoPackages';
+import { SpecialLuxuryLayout } from '@/components/services/SpecialLuxuryLayout';
+import { AcademyLayout } from '@/components/services/AcademyLayout';
+import { WeddingGownsShowcase } from '@/components/services/WeddingGownsShowcase';
 
 export async function generateMetadata({ params }: { params: Promise<{ slug: string }> }): Promise<Metadata> {
   const { slug } = await params;
@@ -41,11 +44,36 @@ export default async function ServiceDetailPage({ params }: { params: Promise<{ 
     notFound();
   }
 
+  if (service.slug === 'designer-bags-shoes' || service.slug === 'luxury-perfumes') {
+    return (
+      <ScrollThemeWrapper>
+        <main className="min-h-screen bg-brand-charcoal">
+          <SpecialLuxuryLayout service={service} />
+        </main>
+      </ScrollThemeWrapper>
+    );
+  }
+
+  if (service.slug === 'fashion-academy') {
+    return (
+      <ScrollThemeWrapper>
+        <main className="min-h-screen bg-brand-ivory">
+          <AcademyLayout service={service} />
+        </main>
+      </ScrollThemeWrapper>
+    );
+  }
+
   return (
     <ScrollThemeWrapper>
       <main className="min-h-screen pt-[100px]">
         <ServiceDetailHero service={service} />
         <ServiceOverview service={service} />
+        
+        {service.slug === 'wedding-gowns' && (
+          <WeddingGownsShowcase />
+        )}
+        
         <ServiceGallery service={service} />
         
         {/* Render Promo Packages exclusively for bridal-accessories as requested */}

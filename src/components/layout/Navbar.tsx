@@ -202,24 +202,13 @@ export default function Navbar() {
                           animate={{ opacity: 1, y: 0 }}
                           exit={{ opacity: 0, y: 10 }}
                           transition={{ duration: 0.3, ease: coutureEase }}
-                          className="absolute top-full left-1/2 -translate-x-1/2 mt-5 w-[700px] z-50"
+                          className="absolute top-full left-1/2 -translate-x-1/2 pt-5 w-[700px] z-50"
                         >
                           {/* Arrow pointer */}
-                          <div className="w-3 h-3 mx-auto -mb-1.5 rotate-45 bg-brand-charcoal/95 border-l border-t border-brand-gold/20" />
+                          <div className="w-3 h-3 mx-auto -mb-1.5 rotate-45 bg-brand-charcoal border-l border-t border-brand-gold/20" />
                           
-                          <div className="relative rounded-2xl overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-brand-gold/20">
+                          <div className="relative rounded-2xl bg-brand-charcoal overflow-hidden shadow-[0_25px_60px_-15px_rgba(0,0,0,0.8)] border border-brand-gold/20">
                             
-                            {/* Brand Image Background */}
-                            <div className="absolute inset-0 pointer-events-none" aria-hidden="true">
-                              <Image
-                                src="/back.webp"
-                                alt=""
-                                fill
-                                loading="lazy"
-                                className="object-cover"
-                              />
-                            </div>
-
                             {/* Content container relative to keep it above background */}
                             <div className="relative z-10">
                               {/* Header strip */}

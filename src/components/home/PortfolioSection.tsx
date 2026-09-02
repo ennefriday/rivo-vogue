@@ -28,6 +28,19 @@ function InViewVideo({ src }: { src: string }) {
     } else {
       ref.current?.pause();
     }
+
+    const handlePause = () => ref.current?.pause();
+    const handlePlay = () => {
+      if (isInView) ref.current?.play().catch(() => {});
+    };
+
+    window.addEventListener('pause-background-videos', handlePause);
+    window.addEventListener('play-background-videos', handlePlay);
+
+    return () => {
+      window.removeEventListener('pause-background-videos', handlePause);
+      window.removeEventListener('play-background-videos', handlePlay);
+    };
   }, [isInView]);
 
   return (

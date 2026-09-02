@@ -31,7 +31,7 @@ export default function HomePage() {
       {/* 4. Store Teaser: Curated Accessories & Scent Carousel */}
       <StoreTeaserSection />
 
-      {/* 5–6. Scroll-Driven Seamless Theme Transition Zone */}
+      {/* 5–6. Scroll-Driven Light Theme Crossfade Zone */}
       <ScrollThemeTransition>
         <TransformationSection />
         <TrustSection />

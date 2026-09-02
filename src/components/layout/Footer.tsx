@@ -187,8 +187,8 @@ export default function Footer() {
                 <li className="flex items-start gap-3 group">
                   <MapPin className="w-4 h-4 text-brand-gold/60 mt-0.5 group-hover:text-brand-gold transition-colors" />
                   <div className="flex flex-col gap-1">
-                    <span className="text-brand-ivory/90 font-medium">Ughelli Fashion House</span>
-                    <span>Delta State, Nigeria</span>
+                    <span className="text-brand-ivory/90 font-medium">109 Upper Afiesere Rd,</span>
+                    <span>Ughelli 333105, Delta</span>
                   </div>
                 </li>
                 <li className="flex items-center gap-3 group">

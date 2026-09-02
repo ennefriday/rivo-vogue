@@ -1,49 +1,118 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { motion, useScroll, useTransform } from 'framer-motion';
+import gsap from 'gsap';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { useGSAP } from '@gsap/react';
+
+if (typeof window !== 'undefined') {
+  gsap.registerPlugin(ScrollTrigger);
+}
+
+/*
+ * ScrollThemeTransition
+ * ─────────────────────
+ * Wraps two sections (TransformationSection + TrustSection) and drives a
+ * seamless, scroll-scrubbed crossfade between the dark brand theme and a
+ * warm light theme.
+ *
+ * Architecture:
+ *   ┌─ wrapper (position: relative, isolate)
+ *   │  ├─ lightOverlay (position: absolute, full-size, light bg)
+ *   │  │   → opacity animated from 0 → 1 → 1 → 0 via GSAP scrub
+ *   │  └─ contentWrapper (position: relative, z-10)
+ *   │      └─ children (TransformationSection, TrustSection)
+ *
+ * The overlay's opacity is scrubbed via ScrollTrigger so the transition is
+ * perfectly tied to the user's scroll position. Large feathered edges on
+ * the overlay (via CSS mask-image) eliminate any hard lines.
+ */
+
+// Light theme palette
+const LIGHT_BG    = '#E8E3DB';   // Warm cream — elegant, not sterile
+const LIGHT_TEXT  = '#0A0908';   // Near-black for legibility
+const DARK_TEXT   = '#FDFBF7';   // Brand ivory
 
 export default function ScrollThemeTransition({ children }: { children: React.ReactNode }) {
-  const containerRef = useRef<HTMLDivElement>(null);
-  
-  const { scrollYProgress } = useScroll({
-    target: containerRef,
-    offset: ["start end", "end start"]
-  });
+  const wrapperRef  = useRef<HTMLDivElement>(null);
+  const overlayRef  = useRef<HTMLDivElement>(null);
+  const contentRef  = useRef<HTMLDivElement>(null);
 
-  // Fade in the light background layer as the section enters, and fade out as it leaves.
-  // 0% -> 15%: Fades from Dark to Light
-  // 15% -> 85%: Stays Light
-  // 85% -> 100%: Fades back to Dark
-  const lightOpacity = useTransform(scrollYProgress, [0, 0.15, 0.85, 1], [0, 1, 1, 0]);
-  
-  // Text color transitions seamlessly alongside the background
-  const textColor = useTransform(
-    scrollYProgress, 
-    [0, 0.15, 0.85, 1], 
-    ["#FDFBF7", "#0A0908", "#0A0908", "#FDFBF7"] // Ivory to Charcoal
-  );
+  useGSAP(() => {
+    const wrapper = wrapperRef.current;
+    const overlay = overlayRef.current;
+    const content = contentRef.current;
+    if (!wrapper || !overlay || !content) return;
+
+    // Timeline scrubbed by scroll position through the wrapper
+    const tl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: 'top bottom',     // Begin when top of wrapper hits bottom of viewport
+        end:   'bottom top',     // End when bottom of wrapper exits top of viewport
+        scrub: 1.2,              // Smooth 1.2s interpolation for buttery feel
+        invalidateOnRefresh: true,
+      },
+    });
+
+    // Phase 1 (0% → 15%): Dark → Light crossfade as section enters
+    // Phase 2 (15% → 85%): Hold at full light
+    // Phase 3 (85% → 100%): Light → Dark crossfade as section exits
+    tl
+      .fromTo(overlay,
+        { opacity: 0 },
+        { opacity: 1, ease: 'power2.inOut', duration: 0.15 },   // 0 → 15%
+      )
+      .to(overlay,
+        { opacity: 1, duration: 0.70 },                          // 15 → 85% (hold)
+      )
+      .to(overlay,
+        { opacity: 0, ease: 'power2.inOut', duration: 0.15 },    // 85 → 100%
+      );
+
+    // Mirror timeline for text color (dark ivory → charcoal → dark ivory)
+    const textTl = gsap.timeline({
+      scrollTrigger: {
+        trigger: wrapper,
+        start: 'top bottom',
+        end:   'bottom top',
+        scrub: 1.2,
+        invalidateOnRefresh: true,
+      },
+    });
+
+    textTl
+      .fromTo(content,
+        { color: DARK_TEXT },
+        { color: LIGHT_TEXT, ease: 'power2.inOut', duration: 0.15 },
+      )
+      .to(content,
+        { color: LIGHT_TEXT, duration: 0.70 },
+      )
+      .to(content,
+        { color: DARK_TEXT, ease: 'power2.inOut', duration: 0.15 },
+      );
+  }, { scope: wrapperRef });
 
   return (
-    <motion.div 
-      ref={containerRef}
-      style={{ color: textColor }}
-      className="relative bg-brand-charcoal"
-    >
-      {/* Light Background Layer - #E5E0D8 is a custom darker white/cream */}
-      <motion.div 
-        style={{ 
-          opacity: lightOpacity,
-          maskImage: 'linear-gradient(to bottom, transparent, black 15vh, black calc(100% - 15vh), transparent)',
-          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 15vh, black calc(100% - 15vh), transparent)'
+    <div ref={wrapperRef} className="relative isolate">
+      {/* Light background overlay — feathered edges via CSS mask for seamless blending */}
+      <div
+        ref={overlayRef}
+        className="absolute inset-0 pointer-events-none will-change-[opacity]"
+        style={{
+          backgroundColor: LIGHT_BG,
+          opacity: 0,
+          maskImage:    'linear-gradient(to bottom, transparent, black 12vh, black calc(100% - 12vh), transparent)',
+          WebkitMaskImage: 'linear-gradient(to bottom, transparent, black 12vh, black calc(100% - 12vh), transparent)',
         }}
-        className="absolute inset-0 bg-[#E5E0D8] pointer-events-none"
+        aria-hidden="true"
       />
 
-      {/* Content wrapper */}
-      <div className="relative z-10">
+      {/* Content rendered above the overlay */}
+      <div ref={contentRef} className="relative z-10">
         {children}
       </div>
-    </motion.div>
+    </div>
   );
 }

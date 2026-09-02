@@ -22,12 +22,15 @@ export default function MediaLightbox({ item, onClose }: MediaLightboxProps) {
     if (item) {
       document.body.style.overflow = 'hidden';
       window.addEventListener('keydown', handleKeyDown);
+      window.dispatchEvent(new Event('pause-background-videos'));
     } else {
       document.body.style.overflow = '';
+      window.dispatchEvent(new Event('play-background-videos'));
     }
     return () => {
       document.body.style.overflow = '';
       window.removeEventListener('keydown', handleKeyDown);
+      window.dispatchEvent(new Event('play-background-videos'));
     };
   }, [item, handleKeyDown]);
 
