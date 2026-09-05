@@ -8,7 +8,7 @@ import { coutureEase } from '@/lib/animations';
 
 const TestimonialCard = ({ item }: { item: TestimonialItem }) => {
   return (
-    <div className="w-[320px] sm:w-[400px] h-full shrink-0 rounded-3xl bg-white/[0.03] border border-white/10 p-8 sm:p-10 flex flex-col justify-between backdrop-blur-md hover:bg-white/[0.05] hover:border-brand-gold/30 transition-all duration-500 group cursor-default">
+    <div className="w-[320px] sm:w-[400px] h-full shrink-0 rounded-3xl bg-white/[0.03] border border-white/10 p-8 sm:p-10 flex flex-col justify-between md:backdrop-blur-md hover:bg-white/[0.05] hover:border-brand-gold/30 transition-all duration-500 group cursor-default">
       
       {/* Top: Quote */}
       <div className="flex-1">

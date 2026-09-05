@@ -42,7 +42,7 @@ export default function MediaLightbox({ item, onClose }: MediaLightboxProps) {
           animate={{ opacity: 1 }}
           exit={{ opacity: 0 }}
           transition={{ duration: 0.4, ease: coutureEase }}
-          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-10 bg-brand-charcoal/95 backdrop-blur-2xl"
+          className="fixed inset-0 z-50 flex items-center justify-center p-4 sm:p-6 lg:p-10 bg-brand-charcoal/95 md:backdrop-blur-2xl"
           onClick={onClose}
           role="dialog"
           aria-modal="true"
@@ -90,7 +90,7 @@ export default function MediaLightbox({ item, onClose }: MediaLightboxProps) {
                 </div>
               )}
 
-              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-widest text-brand-gold font-sans font-medium">
+              <div className="absolute top-4 left-4 px-3 py-1 rounded-full bg-brand-charcoal/80 md:backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-widest text-brand-gold font-sans font-medium">
                 {item.category}
               </div>
             </div>

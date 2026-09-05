@@ -12,17 +12,27 @@ export function AboutCta() {
   const isInView = useInView(ref, { once: true, margin: "200px" });
 
   return (
-    <section ref={ref} className="py-32 px-6 lg:px-12 text-brand-charcoal text-center flex flex-col items-center justify-center relative overflow-hidden bg-brand-pink/20">
+    <section ref={ref} className="flex py-20 md:py-24 px-6 lg:px-12 text-brand-charcoal text-center flex-col items-center justify-center relative overflow-hidden bg-brand-pink/20">
       {/* Strict lazy-loaded background */}
       {isInView && (
-        <Image 
-          src="/animatebackground.webp"
-          alt="Animated Background"
-          fill
-          className="object-cover z-0 opacity-80"
-          sizes="100vw"
-          quality={70}
-        />
+        <>
+          <Image 
+            src="/animatemobile.webp"
+            alt="Animated Background"
+            fill
+            className="block md:hidden object-cover z-0 opacity-80"
+            sizes="100vw"
+            quality={70}
+          />
+          <Image 
+            src="/animatedbackground.webp"
+            alt="Animated Background"
+            fill
+            className="hidden md:block object-cover z-0 opacity-80"
+            sizes="100vw"
+            quality={70}
+          />
+        </>
       )}
 
       <motion.div

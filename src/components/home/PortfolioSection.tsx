@@ -408,7 +408,7 @@ export default function PortfolioSection() {
 
                 {/* Play icon overlay */}
                 <div className="absolute inset-0 z-10 flex items-center justify-center pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity duration-400 bg-brand-charcoal/20">
-                  <div className="w-16 h-16 rounded-full bg-brand-ivory/20 backdrop-blur-md border border-brand-ivory/30 flex items-center justify-center text-brand-ivory shadow-xl">
+                  <div className="w-16 h-16 rounded-full bg-brand-ivory/20 md:backdrop-blur-md border border-brand-ivory/30 flex items-center justify-center text-brand-ivory shadow-xl">
                     <Play className="w-6 h-6 ml-1" />
                   </div>
                 </div>

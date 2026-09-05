@@ -65,7 +65,7 @@ export default function StoreTeaserSection() {
           {/* Left Arrow (Desktop) */}
           <button
             onClick={() => scroll('left')}
-            className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-brand-charcoal/90 backdrop-blur-md border border-brand-gold/40 items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus-visible:opacity-100 shadow-xl"
+            className="hidden lg:flex absolute -left-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-brand-charcoal/90 md:backdrop-blur-md border border-brand-gold/40 items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus-visible:opacity-100 shadow-xl"
             aria-label="Scroll left"
           >
             <ChevronLeft className="w-6 h-6 text-current" />
@@ -74,7 +74,7 @@ export default function StoreTeaserSection() {
           {/* Right Arrow (Desktop) */}
           <button
             onClick={() => scroll('right')}
-            className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-brand-charcoal/90 backdrop-blur-md border border-brand-gold/40 items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus-visible:opacity-100 shadow-xl"
+            className="hidden lg:flex absolute -right-6 top-1/2 -translate-y-1/2 z-30 w-14 h-14 rounded-full bg-brand-charcoal/90 md:backdrop-blur-md border border-brand-gold/40 items-center justify-center text-brand-gold hover:bg-brand-gold hover:text-brand-charcoal transition-all duration-300 opacity-0 group-hover/carousel:opacity-100 focus-visible:opacity-100 shadow-xl"
             aria-label="Scroll right"
           >
             <ChevronRight className="w-6 h-6 text-current" />
@@ -101,7 +101,7 @@ export default function StoreTeaserSection() {
                   transition: { duration: 0.8, delay: index * 0.1, ease: coutureEase } 
                 }
               }}
-              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-white/[0.03] border border-white/10 backdrop-blur-xl flex flex-col overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/40 hover:shadow-[0_20px_60px_-15px_rgba(223,177,91,0.2)] snap-start max-md:!opacity-100 max-md:![transform:none]"
+              className="group flex-shrink-0 w-[300px] sm:w-[360px] rounded-3xl bg-white/[0.03] border border-white/10 md:backdrop-blur-xl flex flex-col overflow-hidden transition-all duration-500 hover:bg-white/[0.05] hover:border-brand-gold/40 hover:shadow-[0_20px_60px_-15px_rgba(223,177,91,0.2)] snap-start max-md:!opacity-100 max-md:![transform:none]"
             >
               {/* Media Container */}
               <div className="relative aspect-[4/5] w-full bg-brand-charcoal overflow-hidden group-hover:border-brand-gold/30 transition-colors">
@@ -133,7 +133,7 @@ export default function StoreTeaserSection() {
 
                 {/* Category & Tags */}
                 <div className="absolute top-4 left-4 flex gap-3 z-20">
-                  <span className="px-4 py-1.5 rounded-full bg-brand-charcoal/80 backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-wider text-brand-gold font-sans font-medium">
+                  <span className="px-4 py-1.5 rounded-full bg-brand-charcoal/80 md:backdrop-blur-md border border-brand-gold/30 text-[10px] uppercase tracking-wider text-brand-gold font-sans font-medium">
                     {item.category}
                   </span>
                   {item.isNew && (

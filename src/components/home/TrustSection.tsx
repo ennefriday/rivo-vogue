@@ -110,7 +110,7 @@ export default function TrustSection() {
                 whileInView={{ opacity: 1, y: 0, scale: 1 }}
                 viewport={{ once: true, margin: '-50px' }}
                 transition={{ duration: 0.7, delay: index * 0.1, ease: coutureEase }}
-                className="rounded-3xl bg-current/[0.03] border border-current/10 backdrop-blur-xl hover:bg-current/[0.05] hover:border-brand-pink/40 p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(229,140,164,0.2)]"
+                className="rounded-3xl bg-current/[0.03] border border-current/10 md:backdrop-blur-xl hover:bg-current/[0.05] hover:border-brand-pink/40 p-8 flex flex-col justify-between transition-all duration-500 hover:shadow-[0_20px_60px_-15px_rgba(229,140,164,0.2)]"
               >
                 <div>
                   <div className="w-14 h-14 rounded-2xl bg-[#A64D6A]/10 border border-[#A64D6A]/30 flex items-center justify-center text-[#A64D6A] mb-8">
@@ -139,7 +139,7 @@ export default function TrustSection() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, ease: coutureEase }}
-          className="rounded-3xl bg-current/[0.03] border border-current/10 p-10 sm:p-16 shadow-xl backdrop-blur-md"
+          className="rounded-3xl bg-current/[0.03] border border-current/10 p-10 sm:p-16 shadow-xl md:backdrop-blur-md"
         >
           <div className="grid grid-cols-2 lg:flex lg:flex-row lg:justify-between items-center lg:items-start gap-10 lg:gap-8">
             {STATS_LIST.map((stat) => (
